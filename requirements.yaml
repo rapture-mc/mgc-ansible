@@ -1,0 +1,15 @@
+- src: https://gitea.megacorp.industries/megacorp/Configure-Fortigate-Firewall-Settings.git
+  scm: git
+  version: 370ec864e2167ac51ee6ffd392c4fd82985675cf
+
+- src: https://gitea.megacorp.industries/megacorp/Configure-Fortigate-System-Interfaces.git
+  scm: git
+  version: 58557a6b73763ef9dfe2a070e6c19ce1a75cf46c
+
+- src: https://gitea.megacorp.industries/megacorp/Configure-Fortigate-System-Settings.git
+  scm: git
+  version: 342335ad963ddba8951f9c919b58d8c3118646db
+
+- src: https://gitea.megacorp.industries/megacorp/Configure-Fortigate-Firewall-Policies.git
+  scm: git
+  version: 1f0fafde2eacb74d5f328ce6f5aeb2d1fed68253
