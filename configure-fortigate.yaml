@@ -1,0 +1,10 @@
+---
+- name: Configure FortiGate
+  hosts: fortigates
+  collections:
+    - fortinet.fortios
+  roles:
+    - configure-fortigate-system-interfaces
+    - configure-fortigate-firewall-settings
+    - configure-fortigate-system-settings
+    - configure-fortigate-firewall-policies
