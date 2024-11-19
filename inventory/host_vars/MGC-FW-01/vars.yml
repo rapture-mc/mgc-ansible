@@ -1,0 +1,25 @@
+api_key: "{{ vault_api_key }}"
+ansible_host: 192.168.1.99
+ansible_user: ansible
+
+# General Settings
+hostname: MGC-FW-01
+vdom: root
+admin_username: benny
+admin_password: '{{ vault_admin_password }}'
+customer_code: MGC
+
+# Interfaces
+lan_interface_name: internal
+wan_mode: pppoe
+wan_vlan: 2
+pppoe_username: ''
+pppoe_password: '{{ vault_pppoe_password }}'
+
+# Wireless Settings
+wifi_controller: true
+ssid: 'Nunya Bizness'
+ssid_password: '{{ vault_ssid_password }}'
+
+# DNS settings
+domain_name: megacorp.industries
