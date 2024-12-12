@@ -3,3 +3,6 @@ ansible_connection: httpapi
 ansible_httpapi_use_ssl: yes
 ansible_httpapi_validate_certs: no
 ansible_httpapi_port: 8665
+
+email_to_address: servicedesk@area9.com.au
+email_server_reply_to_address: servicedesk@area9.com.au
