@@ -4,7 +4,7 @@
 
 - src: https://gitea.megacorp.industries/megacorp/configure-fortigate-system-interfaces
   scm: git
-  version: 58557a6b73763ef9dfe2a070e6c19ce1a75cf46c
+  version: 867f87879dfa101d23e3e4e2c66ef9b21f45910f
 
 - src: https://gitea.megacorp.industries/megacorp/configure-fortigate-system-settings
   scm: git
