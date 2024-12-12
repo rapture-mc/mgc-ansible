@@ -1,0 +1,6 @@
+api_key: "{{ vault_api_key }}"
+ansible_host: 10.30.0.254
+ansible_user: ansible
+
+hostname: FKC-DRW-FW01
+customer_code: FKC
