@@ -1,0 +1,4 @@
+- Enable option for list of IPs for trusted hosts
+- Set timezone automatically
+- Create Phone VLAN 100
+- Create pre-playbook for manual steps outlined in README.md file
