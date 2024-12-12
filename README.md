@@ -14,7 +14,18 @@ end
 execute api-user generate-key ansible
 ```
 
-3. Set HTTPS API port
+3. Update LAN gateway address
+- Change <IP-GATEWAY> and <SUBNET-MASK> accordingly
+- Note: Will disconnect your current session and you must reconnect with new IP gateway
+```
+config system interface
+    edit "lan"
+        set ip <IP-GATEWAY> <SUBNET-MASK>
+    next
+end
+```
+
+4. Set HTTPS API port (will disconnect also)
 ```
 config system global
     set admin-sport 8665
