@@ -11,6 +11,8 @@ email_to_address: 'someone@somedomain.com'
 email_server_reply_to_address: 'someone@somedomain.com'
 site_address: '123 Street, Metropolis'
 ro_snmp_community_string: Mega
+admin_port: 80
+admin_port: 443
 ```
 
 ### User Configuration
