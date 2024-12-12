@@ -1,4 +1,4 @@
-## Ansible Variables
+# Ansible Variables
 ### Generic Settings
 ```
 vdom: root
@@ -61,7 +61,7 @@ guest_netmask: 255.255.255.0
 guest_vlan: 50
 ```
 
-## Preparing the FortiGate for Ansible
+# Preparing the FortiGate for Ansible
 1. Create API user
 ```
 config system api-user
@@ -79,7 +79,7 @@ execute api-user generate-key ansible
 ```
 
 3. Update LAN gateway address
-- Change "<IP-GATEWAY>" and "<SUBNET-MASK>" accordingly
+- Change "IP-GATEWAY" and "SUBNET-MASK" accordingly
 - Note: Will disconnect your current session and you must reconnect with new IP gateway
 ```
 config system interface
