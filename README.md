@@ -10,6 +10,7 @@ end
 ```
 
 2. Generate API key
+- Then update vault_admin_key variable with generated API key
 ```
 execute api-user generate-key ansible
 ```
@@ -25,7 +26,8 @@ config system interface
 end
 ```
 
-4. Set HTTPS API port (will disconnect also)
+4. Set HTTPS API port
+- Note: Will disconnect your current session and you must reconnect with new HTTPS port
 ```
 config system global
     set admin-sport 8665
