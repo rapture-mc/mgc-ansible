@@ -12,4 +12,4 @@
 
 - src: https://gitea.megacorp.industries/megacorp/configure-fortigate-firewall-policies
   scm: git
-  version: 1f0fafde2eacb74d5f328ce6f5aeb2d1fed68253
+  version: fcf260bd6ac592574ea61746d732c55b09bd9db8
