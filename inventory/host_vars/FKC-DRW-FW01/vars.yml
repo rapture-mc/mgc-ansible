@@ -5,8 +5,5 @@ ansible_user: ansible
 hostname: FKC-DRW-FW01
 customer_code: FKC
 
-admin_username: lilyfry
-trusthost2: 103.8.236.42 255.255.255.255
-
 lan_gateway_address: 10.30.0.254
 lan_network_address: 10.30.0.0
