@@ -1,4 +1,3 @@
 - Enable option for list of IPs for trusted hosts
 - Set timezone automatically
-- Create Phone VLAN 100
 - Create missing a9 addresses and address groups
