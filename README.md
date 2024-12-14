@@ -80,7 +80,7 @@ end
 execute api-user generate-key ansible
 ```
 
-3. Set HTTPS API port
+3. Set HTTPS API port (optional)
 - Note: Will disconnect your current session and you must reconnect with new HTTPS port
 ```
 config system global
