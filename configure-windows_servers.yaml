@@ -1,0 +1,21 @@
+---
+- name: Configure Windows Servers
+  hosts: windows_servers
+  collections:
+    - microsoft.ad
+  tasks:
+    - name: Create new domain in a new forest on the target host and reboot
+      microsoft.ad.domain:
+        dns_domain_name: megacorp.industries
+        safe_mode_password: '{{ safe_mode_password }}'
+        reboot: true
+
+    - name: Ensure server is a domain controller
+      microsoft.ad.domain_controller:
+        dns_domain_name: megacorp.industries
+        domain_admin_user: benny@megacorp.industries
+        domain_admin_password: '{{ domain_admin_password }}'
+        safe_mode_password: '{{ safe_mode_password }}'
+        state: domain_controller
+        install_dns: true
+        reboot: true
