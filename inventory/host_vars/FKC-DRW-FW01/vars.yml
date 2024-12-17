@@ -7,3 +7,6 @@ customer_code: FKC
 
 lan_gateway_address: 10.30.0.254
 lan_network_address: 10.30.0.0
+
+email_to_address: servicedesk@area9.com.au
+email_server_reply_to_address: servicedesk@area9.com.au
