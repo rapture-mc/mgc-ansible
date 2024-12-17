@@ -8,7 +8,7 @@
 
 - src: https://gitea.megacorp.industries/megacorp/configure-fortigate-system-settings
   scm: git
-  version: 8ac46ecf1c152b5893f91a54ba7a15fb8f6a372b
+  version: 45ea2f1c1dce91b477e4fe94a4e03f19a992863c
 
 - src: https://gitea.megacorp.industries/megacorp/configure-fortigate-firewall-policies
   scm: git
