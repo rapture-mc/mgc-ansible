@@ -18,7 +18,8 @@ admin_port: 443
 ### User Configuration
 ```
 admin_username: megaman
-admin_password: changeme
+create_read_only_admin: false
+
 ```
 
 ### Wireless Configuration
@@ -51,6 +52,7 @@ estimated_up_kbps: 5000
 ### LAN Configuration
 ```
 lan_interface_name: lan
+lan_dns_server: default(omit)
 lan_gateway_address: 192.168.1.99
 lan_netmask: 255.255.255.0
 ```
