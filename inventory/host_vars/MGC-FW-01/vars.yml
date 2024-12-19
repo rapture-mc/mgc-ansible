@@ -1,25 +1,29 @@
-api_key: "{{ vault_api_key }}"
+api_key: '{{ vault_api_key }}'
 ansible_host: 192.168.1.99
 ansible_user: ansible
 
 # General Settings
 hostname: MGC-FW-01
 admin_username: admin
+create_read_only_admin: true
+authorized_ssh_key: '"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOzlYmoWjZYFeCNdMBCHBXmqpzK1IBmRiB3hNlsgEtre"'
 vdom: root
-admin_password: "{{ vault_admin_password }}"
+admin_password: '{{ vault_admin_password }}'
 customer_code: MGC
+fortigate_is_licensed: false
 
 # Interfaces
 lan_interface_name: internal
+lan_dns_server: 192.168.1.10
 wan_mode: pppoe
 wan_vlan: 2
-pppoe_username: ""
-pppoe_password: "{{ vault_pppoe_password }}"
+pppoe_username: ''
+pppoe_password: '{{ vault_pppoe_password }}'
 
 # Wireless Settings
 wifi_controller: true
 ssid: 'Nunya Bizness'
-ssid_password: "{{ vault_ssid_password }}"
+ssid_password: '{{ vault_ssid_password }}'
 
 # DNS settings
 domain_name: megacorp.industries
