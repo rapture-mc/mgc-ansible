@@ -1,15 +1,15 @@
-- src: https://gitea.megacorp.industries/megacorp/configure-fortigate-firewall-settings
+- src: https://github.com/rapture-mc/configure-fortigate-firewall-settings
   scm: git
   version: 370ec864e2167ac51ee6ffd392c4fd82985675cf
 
-- src: https://gitea.megacorp.industries/megacorp/configure-fortigate-system-interfaces
+- src: https://github.com/rapture-mc/configure-fortigate-system-interfaces
   scm: git
   version: 93f15376a80188567e23ea2e8644240dccd45f9a
 
-- src: https://gitea.megacorp.industries/megacorp/configure-fortigate-system-settings
+- src: https://github.com/rapture-mc/configure-fortigate-system-settings
   scm: git
   version: a5bea81c179dbd73aa62d92ac0509309897434a9
 
-- src: https://gitea.megacorp.industries/megacorp/configure-fortigate-firewall-policies
+- src: https://github.com/rapture-mc/configure-fortigate-firewall-policies
   scm: git
   version: 4b5d5791fd86398ffe0ac3f3de36e1e916d224e9
