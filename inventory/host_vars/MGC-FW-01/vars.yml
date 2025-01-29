@@ -14,7 +14,7 @@ fortigate_is_licensed: false
 
 # Interfaces
 lan_interface_name: internal
-lan_dns_server: 192.168.1.10
+lan_dns_server: 192.168.1.35
 wan_mode: pppoe
 wan_vlan: 2
 pppoe_username: ''
