@@ -3,7 +3,16 @@
   hosts: windows_servers
   collections:
     - microsoft.ad
+    - ansible.windows
   tasks:
+    - name: Rename host and reboot if necessary
+      win_hostname:
+        name: '{{ hostname }}'
+      register: hostname_result
+    - name: Reboot if necessary
+      win_reboot:
+      when: hostname_result.reboot_required
+
     - name: Create new domain in a new forest on the target host and reboot
       microsoft.ad.domain:
         dns_domain_name: megacorp.industries
@@ -19,3 +28,12 @@
         state: domain_controller
         install_dns: true
         reboot: true
+
+    - name: Install Windows ADFS and reboot if necessary
+      win_feature: 
+        name: ADFS-Federation
+        state: present
+      register: adfs_result
+    - name: Reboot if necessary
+      win_reboot:
+      when: adfs_result.reboot_required
