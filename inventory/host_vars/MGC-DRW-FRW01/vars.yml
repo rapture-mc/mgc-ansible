@@ -3,7 +3,7 @@ ansible_host: 192.168.1.99
 ansible_user: ansible
 
 # General Settings
-hostname: MGC-FW-01
+hostname: MGC-DRW-DMC01
 admin_username: admin
 create_read_only_admin: true
 authorized_ssh_key: '"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOzlYmoWjZYFeCNdMBCHBXmqpzK1IBmRiB3hNlsgEtre"'

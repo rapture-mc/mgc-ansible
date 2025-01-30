@@ -1,7 +1,7 @@
 fortigates:
   hosts:
-    MGC-FW-01:
+    MGC-DRW-FRW01:
 
 windows_servers:
   hosts:
-    MGC-DRW-DC01:
+    MGC-DRW-DMC01:
