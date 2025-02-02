@@ -1,4 +1,4 @@
-ansible_user: MEGACORP\Administrator
+ansible_user: Administrator
 ansible_host: 192.168.1.5
-ansible_password: 'vault_ansible_password }}'
+ansible_password: '{{ vault_ansible_password }}'
 hostname: MGC-DRW-DMC01
