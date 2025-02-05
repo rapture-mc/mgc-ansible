@@ -31,7 +31,7 @@
     - name: Install windows_exporter MSI
       win_package:
         path: https://github.com/prometheus-community/windows_exporter/releases/download/v0.30.2/windows_exporter-0.30.2-amd64.msi
-        state: absent
+        state: present
         arguments:
           - ADDLOCAL=FirewallException
           - ENABLED_COLLECTORS=ad,cpu,dns
