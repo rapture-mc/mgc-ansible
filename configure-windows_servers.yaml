@@ -34,4 +34,4 @@
         state: present
         arguments:
           - ADDLOCAL=FirewallException
-          - ENABLED_COLLECTORS=ad,cpu
+          - ENABLED_COLLECTORS=ad,cpu,dns
