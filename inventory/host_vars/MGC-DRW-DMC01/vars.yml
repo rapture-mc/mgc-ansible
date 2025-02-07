@@ -1,4 +1,3 @@
-ansible_user: Administrator@MEGACORP.INDUSTRIES
 ansible_host: MGC-DRW-DMC01
 ansible_password: '{{ vault_ansible_password }}'
 hostname: MGC-DRW-DMC01
