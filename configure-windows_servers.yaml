@@ -35,3 +35,48 @@
         arguments:
           - ADDLOCAL=FirewallException
           - ENABLED_COLLECTORS=cpu,cs,dns,logical_disk,net,os,process,service,time
+
+    - name: Create OU
+      microsoft.ad.ou:
+        name: MGC
+        path: DC=megacorp,DC=industries
+        state: present
+
+    - name: Create sub OUs
+      microsoft.ad.ou:
+        name: '{{ item }}'
+        path: OU=MGC,DC=megacorp,DC=industries
+        state: present
+      loop:
+        - Groups
+        - Users
+        - Computers
+
+    - name: Create Computer OUs
+      microsoft.ad.ou:
+        name: '{{ item }}'
+        path: OU=Computers,OU=MGC,DC=megacorp,DC=industries
+        state: present
+      loop:
+        - Servers
+        - Workstations
+
+    - name: Create User OUs
+      microsoft.ad.ou:
+        name: '{{ item }}'
+        path: OU=Users,OU=MGC,DC=megacorp,DC=industries
+        state: present
+      loop:
+        - System Admins
+        - Management
+        - Finance
+        - HR
+
+    - name: Create Group OUs
+      microsoft.ad.ou:
+        name: '{{ item }}'
+        path: OU=Groups,OU=MGC,DC=megacorp,DC=industries
+      loop:
+        - Folder Groups
+        - Roll Groups
+        - Drive Groups
