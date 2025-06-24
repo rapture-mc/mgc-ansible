@@ -1,6 +1,7 @@
 ---
 - name: Configure FortiGate
   hosts: fortigates
+  gather_facts: false
   collections:
     - fortinet.fortios
   roles:
