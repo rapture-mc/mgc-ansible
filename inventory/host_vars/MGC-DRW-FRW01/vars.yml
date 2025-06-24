@@ -26,4 +26,4 @@ ssid: 'Nunya Bizness'
 ssid_password: '{{ vault_ssid_password }}'
 
 # DNS settings
-domain_name: megacorp.industries
+domain_name: prod.megacorp.industries
