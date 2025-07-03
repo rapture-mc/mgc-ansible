@@ -15,3 +15,31 @@
         arguments:
           - ADDLOCAL=FirewallException
           - ENABLED_COLLECTORS=cpu,cs,dns,logical_disk,net,os,process,service,time
+
+    - name: Create roll groups
+      microsoft.ad.group:
+        identity: '{{ item }}'
+        scope: global
+        path: OU=Roll Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
+      loop:
+        - RG - System Admins
+        - RG - Management
+        - RG - Finance
+        - RG - HR
+
+    - name: Create System admins
+      microsoft.ad.user:
+        name: '{{ item.username }}'
+        identity: '{{ item.username }}'
+        firstname: '{{ item.firstname }}'
+        surname: '{{ item.lastname }}'
+        display_name: '{{ item.display_name }}'
+        upn: '{{ item.username }}@{{ windows_domain_name }}'
+        password: Welcome123
+        update_password: on_create
+        path: OU=System Admins,OU=Users,OU={{ company_shortcode }},{{ base_dn }}
+        groups:
+          set:
+            - Domain Users
+            - RG - System Admins
+      loop: '{{ sys_admins }}'

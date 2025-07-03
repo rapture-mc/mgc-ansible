@@ -3,3 +3,14 @@ ansible_password: '{{ vault_ansible_password }}'
 hostname: MGC-DRW-TMS01
 base_dn: dc=prod,dc=megacorp,dc=industries
 company_shortcode: MGC
+
+sys_admins:
+  - firstname: Ben
+    lastname: Harris
+    username: ben.harris
+    display_name: Ben Harris
+
+  - firstname: John
+    lastname: Smith
+    username: john.smith
+    display_name: John Smith
