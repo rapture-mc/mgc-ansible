@@ -36,9 +36,9 @@
           - ADDLOCAL=FirewallException
           - ENABLED_COLLECTORS=cpu,cs,dns,logical_disk,net,os,process,service,time
 
-    - name: Create OU
+    - name: Create company shortcode OU
       microsoft.ad.ou:
-        name: {{ company_shortcode }}
+        name: '{{ company_shortcode }}'
         path: '{{ base_dn }}'
         state: present
 
