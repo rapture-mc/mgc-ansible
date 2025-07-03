@@ -1,0 +1,46 @@
+---
+- name: Create company shortcode OU
+  microsoft.ad.ou:
+    name: '{{ company_shortcode }}'
+    path: '{{ base_dn }}'
+    state: present
+
+- name: Create sub OUs
+  microsoft.ad.ou:
+    name: '{{ item }}'
+    path: OU={{ company_shortcode }},{{ base_dn }}
+    state: present
+  loop:
+    - Groups
+    - Users
+    - Computers
+
+- name: Create Computer OUs
+  microsoft.ad.ou:
+    name: '{{ item }}'
+    path: OU=Computers,OU={{ company_shortcode }},{{ base_dn }}
+    state: present
+  loop:
+    - Servers
+    - Workstations
+
+- name: Create User OUs
+  microsoft.ad.ou:
+    name: '{{ item }}'
+    path: OU=Users,OU={{ company_shortcode }},{{ base_dn }}
+    state: present
+  loop:
+    - System Admins
+    - Management
+    - Finance
+    - HR
+
+- name: Create Group OUs
+  microsoft.ad.ou:
+    name: '{{ item }}'
+    path: OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
+  loop:
+    - Folder Groups
+    - Roll Groups
+    - Drive Groups
+

@@ -4,30 +4,10 @@
   collections:
     - microsoft.ad
     - ansible.windows
+  roles:
+    - install-adds
+    - create-ous
   tasks:
-    - name: Rename host
-      win_hostname:
-        name: '{{ hostname }}'
-      register: hostname_result
-    - name: Reboot if necessary
-      win_reboot:
-      when: hostname_result.reboot_required
-
-    - name: Create new domain in a new forest on the target host and reboot
-      microsoft.ad.domain:
-        dns_domain_name: '{{ domain_name }}'
-        safe_mode_password: '{{ safe_mode_password }}'
-        reboot: true
-
-    - name: Ensure server is a domain controller and reboot if necessary
-      microsoft.ad.domain_controller:
-        dns_domain_name: '{{ domain_name }}'
-        domain_admin_user: 'benny@{{ domain_name }}'
-        domain_admin_password: '{{ domain_admin_password }}'
-        safe_mode_password: '{{ safe_mode_password }}'
-        state: domain_controller
-        reboot: true
-
     - name: Install windows_exporter MSI
       win_package:
         path: https://github.com/prometheus-community/windows_exporter/releases/download/v0.30.2/windows_exporter-0.30.2-amd64.msi
@@ -35,48 +15,3 @@
         arguments:
           - ADDLOCAL=FirewallException
           - ENABLED_COLLECTORS=cpu,cs,dns,logical_disk,net,os,process,service,time
-
-    - name: Create company shortcode OU
-      microsoft.ad.ou:
-        name: '{{ company_shortcode }}'
-        path: '{{ base_dn }}'
-        state: present
-
-    - name: Create sub OUs
-      microsoft.ad.ou:
-        name: '{{ item }}'
-        path: OU={{ company_shortcode }},{{ base_dn }}
-        state: present
-      loop:
-        - Groups
-        - Users
-        - Computers
-
-    - name: Create Computer OUs
-      microsoft.ad.ou:
-        name: '{{ item }}'
-        path: OU=Computers,OU={{ company_shortcode }},{{ base_dn }}
-        state: present
-      loop:
-        - Servers
-        - Workstations
-
-    - name: Create User OUs
-      microsoft.ad.ou:
-        name: '{{ item }}'
-        path: OU=Users,OU={{ company_shortcode }},{{ base_dn }}
-        state: present
-      loop:
-        - System Admins
-        - Management
-        - Finance
-        - HR
-
-    - name: Create Group OUs
-      microsoft.ad.ou:
-        name: '{{ item }}'
-        path: OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
-      loop:
-        - Folder Groups
-        - Roll Groups
-        - Drive Groups
