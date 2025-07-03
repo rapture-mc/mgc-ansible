@@ -40,7 +40,7 @@
       microsoft.ad.ou:
         name: '{{ company_shortcode }}'
         path: '{{ base_dn }}'
-        state: present
+        state: absent
 
     - name: Create sub OUs
       microsoft.ad.ou:
