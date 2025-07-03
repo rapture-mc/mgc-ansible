@@ -39,13 +39,13 @@
     - name: Create OU
       microsoft.ad.ou:
         name: MGC
-        path: DC=megacorp,DC=industries
+        path: '{{ base_dn }}'
         state: present
 
     - name: Create sub OUs
       microsoft.ad.ou:
         name: '{{ item }}'
-        path: OU=MGC,DC=megacorp,DC=industries
+        path: OU=MGC,{{ base_dn }}
         state: present
       loop:
         - Groups
@@ -55,7 +55,7 @@
     - name: Create Computer OUs
       microsoft.ad.ou:
         name: '{{ item }}'
-        path: OU=Computers,OU=MGC,DC=megacorp,DC=industries
+        path: OU=Computers,OU=MGC,{{ base_dn }}
         state: present
       loop:
         - Servers
@@ -64,7 +64,7 @@
     - name: Create User OUs
       microsoft.ad.ou:
         name: '{{ item }}'
-        path: OU=Users,OU=MGC,DC=megacorp,DC=industries
+        path: OU=Users,OU=MGC,{{ base_dn }}
         state: present
       loop:
         - System Admins
@@ -75,7 +75,7 @@
     - name: Create Group OUs
       microsoft.ad.ou:
         name: '{{ item }}'
-        path: OU=Groups,OU=MGC,DC=megacorp,DC=industries
+        path: OU=Groups,OU=MGC,{{ base_dn }}
       loop:
         - Folder Groups
         - Roll Groups
