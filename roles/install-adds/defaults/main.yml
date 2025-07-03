@@ -1,3 +1,3 @@
 domain_admin_password: changeme
 safe_mode_password: changeme
-domain_name: example.com
+windows_domain_name: example.com

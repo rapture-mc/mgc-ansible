@@ -12,3 +12,5 @@ ansible_user: Administrator
 domain_admin_password: '{{ vault_domain_admin_password }}'
 safe_mode_password: '{{ vault_safe_mode_password }}'
 windows_domain_name: prod.megacorp.industries
+base_dn: dc=prod,dc=megacorp,dc=industries
+company_shortcode: MGC

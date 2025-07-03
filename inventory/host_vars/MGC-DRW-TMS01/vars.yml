@@ -1,8 +1,6 @@
 ansible_host: 192.168.1.7
 ansible_password: '{{ vault_ansible_password }}'
 hostname: MGC-DRW-TMS01
-base_dn: dc=prod,dc=megacorp,dc=industries
-company_shortcode: MGC
 
 sys_admins:
   - firstname: Ben
