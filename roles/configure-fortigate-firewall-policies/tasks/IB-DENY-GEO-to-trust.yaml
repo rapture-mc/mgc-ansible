@@ -1,0 +1,36 @@
+---
+- name: Create IB-DENY-GEO-to-trust policy
+  fortios_firewall_policy:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_policy:
+      policyid: 3
+      name: IB-DENY-GEO-to-trust
+      status: enable
+      srcintf:
+        - name: z-wan
+      dstintf:
+        - name: z-trust
+      action: deny
+      srcaddr:
+        - name: CN
+        - name: KP
+        - name: RU
+        - name: NL
+      dstaddr:
+        - name: all
+      internet_service: disable
+      internet_service_src: disable
+      schedule: always
+      service: 
+        - name: ALL
+      geoip_match: physical-location
+      logtraffic: all
+      np_acceleration: enable
+      match_vip: enable
+      comments: 'RUN set match-vip enable'
+      srcaddr_negate: disable
+      dstaddr_negate: disable
+      service_negate: disable
+      captive_portal_exempt: disable

@@ -1,0 +1,22 @@
+---
+- name: Configure SNMP sysinfo
+  fortios_system_snmp_sysinfo:
+    access_token: '{{ api_key }}'
+    vdom: '{{ vdom }}'
+    system_snmp_sysinfo:
+      status: enable
+      description: '{{ customer_code }} FGT-40F'
+      contact_info: '{{ email_to_address }}'
+      location: '{{ site_address }}'
+
+- name: Configure SNMP community
+  fortios_system_snmp_community:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom: '{{ vdom }}'
+    system_snmp_community:
+      id: 1
+      name: '{{ ro_snmp_community_string }}'
+      query_v1_status: disable
+      trap_v1_status: disable
+      trap_v2c_status: disable

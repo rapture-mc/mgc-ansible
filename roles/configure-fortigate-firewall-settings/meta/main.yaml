@@ -1,0 +1,10 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: Configure-Fortigate-Firewall-Settings
+  author: benny
+  description: Configure firewall settings for FortiGate
+  min_ansible_version: 2.4
+  galaxy_tags:
+    - fortigate

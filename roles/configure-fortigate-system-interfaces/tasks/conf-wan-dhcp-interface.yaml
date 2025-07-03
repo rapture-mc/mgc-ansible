@@ -1,0 +1,29 @@
+---
+- name: Configure WAN Interface for DHCP
+  fortios_system_interface:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom: '{{ vdom }}'
+    system_interface:
+      alias: WAN-Uplink-DHCP
+      allowaccess:
+        - fgfm
+        - https
+        - ping
+        - snmp
+        - ssh
+      defaultgw: disable
+      device_identification: enable
+      dns_server_override: disable
+      egress_shaping_profile: 'Outgoing Shaping'
+      estimated_downstream_bandwidth: '{{ estimated_down_kbps }}'
+      estimated_upstream_bandwidth: '{{ estimated_up_kbps }}'
+      mode: dhcp
+      mtu_override: enable
+      name: '{{ wan_interface_name }}'
+      outbandwidth: '{{ estimated_up_kbps }}'
+      role: wan
+      tcp_mss: 1460
+      type: physical
+      vdom: '{{ vdom }}'
+      vlanid: '{{ wan_vlan }}'

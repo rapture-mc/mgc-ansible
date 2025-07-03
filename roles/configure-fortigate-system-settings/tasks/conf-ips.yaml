@@ -1,0 +1,77 @@
+---
+- name: Configure IPS global settings
+  fortios_ips_global:
+    access_token: '{{ api_key }}'
+    vdom:  '{{ vdom }}'
+    ips_global:
+      traffic_submit: enable
+
+- name: Configure HTTP/S, FTP and ICMP sensor settings
+  fortios_ips_sensor:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    ips_sensor:
+      name: http-https-ftp-icmp
+      scan_botnet_connections: block
+      entries:
+        - id: 1
+          severity: 
+            - high
+            - critical
+          protocol:
+            - ICMP
+            - HTTP
+            - FTP
+            - HTTPS
+            - FTPS
+          log_packet: enable
+
+- name: Configure SIP, RTSP and RTP sensor settings
+  fortios_ips_sensor:
+    state: present
+    vdom:  '{{ vdom }}'
+    access_token: '{{ api_key }}'
+    ips_sensor:
+      name: voice_sip-rtsp-rtp
+      scan_botnet_connections: block
+      entries:
+        - id: 1
+          protocol:
+            - SIP
+            - RTSP
+            - RTP
+          log_packet: enable
+
+- name: Configure DNS sensor settings
+  fortios_ips_sensor:
+    state: present
+    vdom:  '{{ vdom }}'
+    access_token: '{{ api_key }}'
+    ips_sensor:
+      name: dns-outbound
+      scan_botnet_connections: block
+      entries:
+        - id: 1
+          protocol:
+            - DNS
+          log_packet: enable
+
+- name: Configure SMTP/S, POP3/S and IMAP/S sensor settings
+  fortios_ips_sensor:
+    state: present
+    vdom:  '{{ vdom }}'
+    access_token: '{{ api_key }}'
+    ips_sensor:
+      name: mail-all
+      scan_botnet_connections: block
+      entries:
+        - id: 1
+          protocol:
+            - SMTP
+            - SMTPS
+            - POP3
+            - POP3S
+            - IMAP
+            - IMAPS
+          log_packet: enable

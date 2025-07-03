@@ -1,0 +1,15 @@
+---
+- name: Configure global settings
+  fortios_system_global:
+    access_token: '{{ api_key }}'
+    vdom: '{{ vdom }}'
+    system_global:
+      admin_console_timeout: 40
+      autorun_log_fsck: enable
+      hostname: '{{ hostname }}'
+      log_uuid_address: enable
+      management_port_use_admin_sport: disable
+      switch_controller: enable
+      admin_port: '{{ admin_port }}'
+      admin_sport: '{{ admin_sport }}'
+      timezone: Australia/Darwin

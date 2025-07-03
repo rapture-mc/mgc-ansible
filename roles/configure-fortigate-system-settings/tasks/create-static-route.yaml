@@ -1,0 +1,16 @@
+---
+- name: Create static route
+  fortios_router_static:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom: '{{ vdom }}'
+    router_static:
+      bfd: disable
+      blackhole: disable
+      device: wan
+      distance: 10
+      dst: '0.0.0.0 0.0.0.0'
+      dynamic_gateway: enable
+      priority: 1
+      seq_num: 1
+      status: enable

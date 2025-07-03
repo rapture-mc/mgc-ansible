@@ -1,0 +1,42 @@
+---
+- name: Configure system DNS settings
+  fortios_system_dns:
+    access_token: '{{ api_key }}'
+    vdom: '{{ vdom }}'
+    system_dns:
+      primary: 1.1.1.1
+      secondary: 8.8.8.8
+      protocol: cleartext
+
+- name: Configure system DNS database settings
+  fortios_system_dns_database:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    system_dns_database:
+      name: 1
+      domain: identrust.com
+      dns_entry:
+        - id: 1
+          hostname: apps
+          ip: 127.0.0.1
+
+- name: Configure system DNS server settings
+  fortios_system_dns_server:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    system_dns_server:
+      name: '{{ lan_interface_name }}'
+      dnsfilter_profile: default
+  when: fortigate_is_licensed
+
+- name: Disable system DNS server settings
+  fortios_system_dns_server:
+    access_token: '{{ api_key }}'
+    state: absent
+    vdom:  '{{ vdom }}'
+    system_dns_server:
+      name: '{{ lan_interface_name }}'
+      dnsfilter_profile: default
+  when: not fortigate_is_licensed

@@ -1,0 +1,11 @@
+---
+- name: Create traffic class
+  collections:
+    - fortinet.fortios
+  fortios_firewall_traffic_class:
+    vdom: '{{ vdom }}'
+    access_token: '{{ api_key }}'
+    state: present
+    firewall_traffic_class:
+      class_id: 2
+      class_name: Default

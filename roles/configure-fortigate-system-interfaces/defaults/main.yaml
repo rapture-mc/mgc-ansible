@@ -1,0 +1,29 @@
+# Generic Settings
+vdom: root
+
+# WAN Configuration
+pppoe_username: ''
+pppoe_password: ''
+wan_interface_name: wan
+wan_interface_name_pppoe: wan-pppoe
+wan_mode: dhcp
+wan_vlan: 1
+estimated_down_kbps: 25000
+estimated_up_kbps: 5000
+
+# LAN Configuration
+lan_interface_name: lan
+lan_gateway_address: 192.168.1.99
+lan_netmask: 255.255.255.0
+
+# Guest Configuration
+guest_interface_name: GUEST-VLAN{{ guest_vlan }}
+guest_gateway_address: 192.168.50.1
+guest_netmask: 255.255.255.0
+guest_vlan: 50
+#
+# VoIP Configuration
+voip_interface_name: VOIP-VLAN{{ voip_vlan }}
+voip_gateway_address: 192.168.100.1
+voip_netmask: 255.255.255.0
+voip_vlan: 100

@@ -1,0 +1,41 @@
+---
+- name: Create OB-ALLOW-VoWiFi-to-wan policy
+  fortios_firewall_policy:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_policy:
+      policyid: 90
+      name: OB-ALLOW-VoWiFi-to-wan
+      status: enable
+      srcintf:
+        - name: z-trust
+      dstintf:
+        - name: z-wan
+      action: accept
+      srcaddr:
+        - name: all
+      dstaddr:
+        - name: epdg.epc.*.mcc505.pub.3gppnetwork.org
+      internet_service: disable
+      internet_service_src: disable
+      schedule: always
+      service: 
+        - name: IKE
+      anti_replay: enable
+      utm_status: enable
+      inspection_mode: flow
+      profile_type: single
+      profile_protocol_options: default
+      ssl_ssh_profile: certificate-inspection
+      av_profile: default
+      ips_sensor: mail-all
+      logtraffic: all
+      auto_asic_offload: enable
+      np_acceleration: enable
+      nat: enable
+      srcaddr_negate: disable
+      dstaddr_negate: disable
+      service_negate: disable
+      timeout_send_rst: disable
+      captive_portal_exempt: disable

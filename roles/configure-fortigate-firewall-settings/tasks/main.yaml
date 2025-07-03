@@ -1,0 +1,9 @@
+---
+- name: Create firewall addresses
+  import_tasks: create-addresses.yaml
+
+- name: Create firewall address groups
+  import_tasks: create-address-groups.yaml
+
+- name: Configure recurring schedule
+  import_tasks: conf-recurring-schedule.yaml

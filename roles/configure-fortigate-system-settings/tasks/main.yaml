@@ -1,0 +1,50 @@
+---
+- name: Configure system globals
+  import_tasks: conf-system-globals.yaml
+  ignore_errors: true
+
+- name: Create static route
+  import_tasks: create-static-route.yaml
+
+- name: Create DHCP servers
+  import_tasks: create-dhcp-servers.yaml
+
+- name: Create accprofile
+  import_tasks: create-accprofile.yaml
+
+- name: Create admin
+  import_tasks: create-admin.yaml
+
+- name: Configure DNS
+  import_tasks: conf-dns.yaml
+
+- name: Configure SNMP
+  import_tasks: conf-snmp.yaml
+
+- name: Configure autoupdate schedule
+  import_tasks: conf-autoupdate-schedule.yaml
+
+- name: Configure FortiGuard
+  import_tasks: conf-fortiguard.yaml
+
+- name: Configure IPS settings
+  import_tasks: conf-ips.yaml
+
+- name: Configure email server
+  import_tasks: conf-email-server.yaml
+
+- name: Configure console
+  import_tasks: conf-console.yaml
+
+- name: Configure NTP
+  import_tasks: conf-ntp.yaml
+
+- name: Configure system settings
+  import_tasks: conf-system-settings.yaml
+
+- name: Configure log settings
+  import_tasks: conf-log-settings.yaml
+
+- name: Configure WiFi settings 
+  import_tasks: conf-vaps.yaml
+  when: wifi_controller == true

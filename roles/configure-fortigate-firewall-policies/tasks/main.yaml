@@ -1,0 +1,45 @@
+---
+- name: Create IB-DENY-GEO-to-trust policy
+  import_tasks: IB-DENY-GEO-to-trust.yaml
+
+- name: Create IB-DENY-GEO-to-untrust policy
+  import_tasks: IB-DENY-GEO-to-untrust.yaml
+
+- name: Create IB-DENY-IS-to-trust policy
+  import_tasks: IB-DENY-IS-to-trust.yaml
+
+- name: Create IB-DENY-IS-to-untrust policy
+  import_tasks: IB-DENY-IS-to-untrust.yaml
+
+- name: Create INTRA-DENY-trust-to-trust policy
+  import_tasks: INTRA-DENY-trust-to-trust.yaml
+
+- name: Create INTRA-DENY-untrust-to-untrust policy
+  import_tasks: INTRA-DENY-untrust-to-untrust.yaml
+
+- name: Create INTRA-DENY-wan-to-wan policy
+  import_tasks: INTRA-DENY-wan-to-wan.yaml
+
+- name: Create OB-ALLOW-DNS-NTP-to-wan policy
+  import_tasks: OB-ALLOW-DNS-NTP-to-wan.yaml
+
+- name: Create OB-ALLOW-IS-to-wan policy
+  import_tasks: OB-ALLOW-IS-to-wan.yaml
+
+- name: Create OB-ALLOW-Mail-to-wan policy
+  import_tasks: OB-ALLOW-Mail-to-wan.yaml
+
+- name: Create OB-ALLOW-VoWiFi-to-wan policy
+  import_tasks: OB-ALLOW-VoWiFi-to-wan.yaml
+
+- name: Create OB-ALLOW-Web-to-wan policy
+  import_tasks: OB-ALLOW-Web-to-wan.yaml
+
+- name: Create OB-ALLOW-SSH-FTP-to-wan policy
+  import_tasks: OB-ALLOW-SSH-FTP-to-wan.yaml
+
+- name: Create OB-ALLOW-WindowsNTP-to-wan policy
+  import_tasks: OB-ALLOW-WindowsNTP-to-wan.yaml
+
+- name: Create OB-ALLOW-untrust-to-wan policy
+  import_tasks: OB-ALLOW-untrust-to-wan.yaml

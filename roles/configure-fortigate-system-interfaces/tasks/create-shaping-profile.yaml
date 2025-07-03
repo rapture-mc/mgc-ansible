@@ -1,0 +1,14 @@
+---
+- name: Create shaping profile
+  fortios_firewall_shaping_profile:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom: '{{ vdom }}'
+    firewall_shaping_profile:
+      default_class_id: 2
+      profile_name: 'Outgoing Shaping'
+      shaping_entries:
+        - class_id: 2
+          guaranteed_bandwidth_percentage: 95
+          id: 1
+          maximum_bandwidth_percentage: 99

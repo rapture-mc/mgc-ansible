@@ -1,0 +1,18 @@
+---
+- name: Create accprofile for new admin
+  fortios_system_accprofile:
+    state: present
+    vdom: '{{ vdom }}'
+    access_token: '{{ api_key }}'
+    system_accprofile:
+      name: read_only_admin
+      secfabgrp: read
+      ftviewgrp: read
+      authgrp: read
+      fwgrp: read
+      loggrp: read
+      netgrp: read
+      sysgrp: read
+      utmgrp: read
+      vpngrp: read
+      wifi: read

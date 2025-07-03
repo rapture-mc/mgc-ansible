@@ -1,0 +1,7 @@
+---
+- name: Configure system console
+  fortios_system_console:
+    access_token: '{{ api_key }}'
+    vdom:  '{{ vdom }}'
+    system_console:
+      output: standard

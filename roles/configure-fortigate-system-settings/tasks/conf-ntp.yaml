@@ -1,0 +1,10 @@
+---
+- name: Configure system NTP server
+  fortios_system_ntp:
+    access_token: '{{ api_key }}'
+    vdom:  '{{ vdom }}'
+    system_ntp:
+      ntpsync: enable
+      server_mode: enable
+      interface: 
+        - interface_name: '{{ lan_interface_name }}'

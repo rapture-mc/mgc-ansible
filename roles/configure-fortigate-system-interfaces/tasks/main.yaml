@@ -1,0 +1,26 @@
+---
+- name: Create traffic class
+  import_tasks: create-traffic-class.yaml
+
+- name: Create shaping profile
+  import_tasks: create-shaping-profile.yaml
+
+- name: Configure WAN interface (DHCP)
+  import_tasks: conf-wan-dhcp-interface.yaml
+  when: wan_mode == 'dhcp'
+
+- name: Configure WAN interface (PPPoE)
+  import_tasks: conf-wan-pppoe-interface.yaml
+  when: wan_mode == 'pppoe'
+
+- name: Configure lan interface
+  import_tasks: conf-lan-interface.yaml
+
+- name: Configure guest interface
+  import_tasks: conf-guest-interface.yaml
+
+- name: Configure voip interface
+  import_tasks: conf-voip-interface.yaml
+
+- name: Create interface zones
+  import_tasks: create-zones.yaml

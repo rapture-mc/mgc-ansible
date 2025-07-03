@@ -1,0 +1,12 @@
+---
+- name: Configure wireless controller VAP
+  collections:
+    - fortinet.fortios
+  fortios_wireless_controller_vap:
+    state: present
+    vdom:  '{{ vdom }}'
+    access_token: '{{ api_key }}'
+    wireless_controller_vap:
+      name: wifi
+      ssid: '{{ ssid }}'
+      passphrase: '{{ vault_ssid_password }}'

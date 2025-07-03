@@ -1,0 +1,23 @@
+---
+- name: Configure Guest Network
+  fortios_system_interface:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom: '{{ vdom }}'
+    system_interface:
+      allowaccess:
+        - ping
+      arpforward: enable
+      device_identification: enable
+      device_user_identification: enable
+      interface: '{{ lan_interface_name }}'
+      ip: '{{ guest_gateway_address }} {{ guest_netmask }}'
+      mode: static
+      name: '{{ guest_interface_name }}'
+      role: lan
+      src_check: enable
+      status: down
+      type: vlan
+      vdom: '{{ vdom }}'
+      vlan_protocol: 8021q
+      vlanid: '{{ guest_vlan }}'

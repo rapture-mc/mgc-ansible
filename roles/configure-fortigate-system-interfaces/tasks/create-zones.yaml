@@ -1,0 +1,69 @@
+---
+- name: Delete default policy (interfaces can't be added to zones if referenced in a policy)
+  block:
+    - name: Delete default policy ID 1
+      fortios_firewall_policy:
+        access_token: '{{ api_key }}'
+        state: absent
+        vdom:  '{{ vdom }}'
+        firewall_policy:
+          policyid: 1
+
+    - name: Delete default policy ID 2
+      fortios_firewall_policy:
+        access_token: '{{ api_key }}'
+        state: absent
+        vdom:  '{{ vdom }}'
+        firewall_policy:
+          policyid: 2
+
+- name: Create WAN zone (DHCP)
+  fortios_system_zone:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom: '{{ vdom }}'
+    system_zone:
+      name: z-wan
+      description: 'Zone for WAN interfaces'
+      intrazone: deny
+      interface:
+        - interface_name: '{{ wan_interface_name }}'
+  when: wan_mode == 'dhcp'
+
+- name: Create WAN zone (PPPoE)
+  fortios_system_zone:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom: '{{ vdom }}'
+    system_zone:
+      name: z-wan
+      description: 'Zone for WAN interfaces'
+      intrazone: deny
+      interface:
+        - interface_name: '{{ wan_interface_name_pppoe }}'
+  when: wan_mode == 'pppoe'
+
+- name: Create trust zone
+  fortios_system_zone:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom: '{{ vdom }}'
+    system_zone:
+      name: z-trust
+      description: 'Zone for trusted interfaces'
+      intrazone: deny
+      interface:
+        - interface_name: '{{ lan_interface_name }}'
+
+- name: Create untrust zone
+  fortios_system_zone:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom: '{{ vdom }}'
+    system_zone:
+      name: z-untrust
+      description: 'Zone for untrusted interfaces'
+      intrazone: deny
+      interface:
+        - interface_name: '{{ guest_interface_name }}'
+        - interface_name: '{{ voip_interface_name }}'

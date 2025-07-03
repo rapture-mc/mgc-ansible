@@ -1,0 +1,48 @@
+# General Configuration
+hostname: ansibled-forti
+email_to_address: 'someone@somedomain.com'
+email_server_reply_to_address: 'someone@somedomain.com'
+site_address: '123 Street, Metropolis'
+ro_snmp_community_string: Mega
+admin_port: 80
+admin_sport: 443
+fortigate_is_licensed: true
+
+# FortiWiFi Configuration
+wifi_controller: false
+ssid: fortinet
+ssid_password: changeme
+
+# User Configuration
+admin_username: megaman
+create_read_only_admin: false
+
+# LAN Configuration
+lan_interface_name: lan
+lan_gateway_address: 192.168.1.99
+lan_network_address: 192.168.1.0
+lan_netmask: 255.255.255.0
+lan_vlan: 1
+
+# Guest Configuration
+guest_interface_name: GUEST-VLAN{{ guest_vlan }}
+guest_gateway_address: 192.168.50.99
+guest_netmask: 255.255.255.0
+guest_vlan: 50
+#
+# VoIP Configuration
+voip_interface_name: VOIP-VLAN{{ voip_vlan }}
+voip_gateway_address: 192.168.100.1
+voip_netmask: 255.255.255.0
+voip_vlan: 100
+
+# DHCP Configuration
+lan_dhcp_start_address: 192.168.1.100
+lan_dhcp_end_address: 192.168.1.250
+guest_dhcp_start_address: 192.168.50.100
+guest_dhcp_end_address: 192.168.50.250
+voip_dhcp_start_address: 192.168.100.100
+voip_dhcp_end_address: 192.168.100.250
+
+# DNS Configuration
+domain_name: local.example

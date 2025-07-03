@@ -1,0 +1,69 @@
+---
+- name: Create OB-ALLOW-IS-to-wan policy
+  fortios_firewall_policy:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_policy:
+      policyid: 65
+      name: OB-ALLOW-IS-to-wan
+      status: enable
+      srcintf:
+        - name: z-trust
+      dstintf:
+        - name: z-wan
+      action: accept
+      srcaddr:
+        - name: all
+      internet_service: enable
+      internet_service_name:
+        - name: Microsoft-Azure
+        - name: Microsoft-Microsoft.Update
+        - name: Microsoft-Office365
+        - name: Microsoft-Office365.Published
+        - name: Microsoft-Outlook
+        - name: Microsoft-Skype_Teams
+        - name: Microsoft-Outbound_Email
+        - name: Microsoft-Inbound_Email
+        - name: Microsoft-Web
+        - name: Meta-Whatsapp
+        - name: Meta-Web
+        - name: Meta-Instagram
+        - name: TrendMicro-Other
+        - name: TrendMicro-Web
+        - name: Apple-APNs
+        - name: Apple-App.Store
+        - name: Apple-DNS
+        - name: Apple-Inbound_Email
+        - name: Apple-NTP
+        - name: Apple-Outbound_Email
+        - name: Apple-Other
+        - name: Amazon-AWS
+        - name: Amazon-Web
+        - name: Google-Google.Cloud
+        - name: Google-Other
+        - name: Google-Web
+        - name: Shopify-Web
+        - name: Twitter-Web
+        - name: Cloudflare-NTP
+        - name: Cloudflare-CDN
+        - name: ntp.org-NTP
+      internet_service_src: disable
+      schedule: always
+      utm_status: enable
+      inspection_mode: flow
+      profile_type: single
+      profile_protocol_options: default
+      ssl_ssh_profile: certificate-inspection
+      av_profile: default
+      webfilter_profile: default
+      ips_sensor: http-https-ftp-icmp
+      logtraffic: all
+      auto_asic_offload: enable
+      np_acceleration: enable
+      nat: enable
+      srcaddr_negate: disable
+      dstaddr_negate: disable
+      service_negate: disable
+      timeout_send_rst: disable
+      captive_portal_exempt: disable

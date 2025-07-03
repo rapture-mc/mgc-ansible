@@ -1,0 +1,194 @@
+---
+- name: Create lan network address
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      associated_interface: z-trust
+      color: 6
+      name: '{{ lan_network_address }}/{{ lan_netmask }}'
+      subnet: '{{ lan_network_address }} {{ lan_netmask }}'
+      type: ipmask
+
+- name: Create guest network address
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      associated_interface: z-untrust
+      color: 6
+      name: '{{ guest_network_address }}/{{ guest_netmask }}'
+      subnet: '{{ guest_network_address }} {{ guest_netmask }}'
+      type: ipmask
+
+- name: Create IMAP gmail address
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      color: 6
+      fqdn: imap.gmail.com
+      name: imap.gmail.com
+      type: fqdn
+
+- name: Create VOIP over WiFi for aussie carriers
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      color: 6
+      comment: 'Voice over WiFi for all Australian Carriers'
+      fqdn: epdg.epc.*.mcc505.pub.3gppnetwork.org
+      name: epdg.epc.*.mcc505.pub.3gppnetwork.org
+      type: fqdn
+
+- name: Create 192.168.0.0/16 IP range address
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      color: 6
+      name: 192.168.0.0/16
+      subnet: '192.168.0.0 255.255.0.0'
+
+- name: Create 10.0.0.0/8 IP range address
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      color: 6
+      name: 10.0.0.0/8
+      subnet: '10.0.0.0 255.0.0.0'
+
+- name: Create 172.16.0.0/12 IP range address
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      color: 6
+      name: 172.16.0.0/12
+      subnet: '172.16.0.0 255.240.0.0'
+
+- name: Create 0.0.0.0/8 IP range address
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      color: 6
+      name: 0.0.0.0/8
+      subnet: '0.0.0.0 255.0.0.0'
+
+- name: Create windows time address
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      color: 6
+      fqdn: time.windows.com
+      name: time.windows.com
+      type: fqdn
+
+- name: Create AU geo address
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      associated_interface: z-wan
+      color: 6
+      country: AU
+      name: AU
+      type: geography
+
+- name: Create US geo address
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      associated_interface: z-wan
+      color: 6
+      country: US
+      name: US
+      type: geography
+
+- name: Create GB geo address
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      associated_interface: z-wan
+      color: 6
+      country: GB
+      name: GB
+      type: geography
+
+- name: Create CN geo address
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      associated_interface: z-wan
+      color: 6
+      country: CN
+      name: CN
+      type: geography
+
+- name: Create JP geo address
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      associated_interface: z-wan
+      color: 6
+      country: JP
+      name: JP
+      type: geography
+
+- name: Create RU geo address
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      associated_interface: z-wan
+      color: 6
+      country: RU
+      name: RU
+      type: geography
+
+- name: Create KP geo address
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      associated_interface: z-wan
+      color: 6
+      country: KP
+      name: KP
+      type: geography
+
+- name: Create NL geo address
+  fortios_firewall_address:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_address:
+      associated_interface: z-wan
+      color: 6
+      country: NL
+      name: NL
+      type: geography

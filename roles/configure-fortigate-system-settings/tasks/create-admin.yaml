@@ -1,0 +1,33 @@
+---
+- name: Create new admin {{ admin_username }}
+  fortios_system_admin:
+    state: present
+    vdom: '{{ vdom }}'
+    access_token: '{{ api_key }}'
+    system_admin:
+      name: '{{ admin_username }}'
+      ssh_public_key1: '{{ authorized_ssh_key | default(omit) }}'
+      trusthost1: '{{ lan_network_address }} {{ lan_netmask }}'
+      trusthost2: '{{ trusthost2 | default(omit) }}'
+      trusthost3: '{{ trusthost3 | default(omit) }}'
+      accprofile: super_admin
+      vdom:
+        - name: '{{ vdom }}'
+      email_to: '{{ email_to_address }}'
+
+- name: Create new read-only admin {{ admin_username }}-ro
+  fortios_system_admin:
+    state: present
+    vdom: '{{ vdom }}'
+    access_token: '{{ api_key }}'
+    system_admin:
+      name: '{{ admin_username }}-ro'
+      ssh_public_key1: '{{ authorized_ssh_key | default(omit) }}'
+      trusthost1: '{{ lan_network_address }} {{ lan_netmask }}'
+      trusthost2: '{{ trusthost2 | default(omit) }}'
+      trusthost3: '{{ trusthost3 | default(omit) }}'
+      accprofile: read_only_admin
+      vdom:
+        - name: '{{ vdom }}'
+      email_to: '{{ email_to_address }}'
+  when: create_read_only_admin

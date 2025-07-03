@@ -1,0 +1,45 @@
+---
+- name: Create OB-ALLOW-Web-to-wan policy
+  fortios_firewall_policy:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_policy:
+      policyid: 70
+      name: OB-ALLOW-Web-to-wan
+      status: enable
+      srcintf:
+        - name: z-trust
+      dstintf:
+        - name: z-wan
+      action: accept
+      srcaddr:
+        - name: all
+      dstaddr:
+        - name: AG-PRIVATE-ADDRESSES
+      internet_service: disable
+      internet_service_src: disable
+      schedule: always
+      service: 
+        - name: PING
+        - name: FTP
+        - name: HTTP
+        - name: HTTPS
+      utm_status: enable
+      inspection_mode: flow
+      profile_type: single
+      profile_protocol_options: default
+      ssl_ssh_profile: certificate-inspection
+      av_profile: default
+      webfilter_profile: default
+      dnsfilter_profile: default
+      ips_sensor: http-https-ftp-icmp
+      logtraffic: all
+      auto_asic_offload: enable
+      np_acceleration: enable
+      nat: enable
+      srcaddr_negate: disable
+      dstaddr_negate: enable
+      service_negate: disable
+      timeout_send_rst: disable
+      captive_portal_exempt: disable

@@ -1,0 +1,34 @@
+---
+- name: Configure recurring firewall schedule for always
+  fortios_firewall_schedule_recurring:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_schedule_recurring:
+      name: always
+      day:
+        - sunday
+        - monday
+        - tuesday
+        - wednesday
+        - thursday
+        - friday
+        - saturday
+
+- name: Configure recurring firewall schedule for darrp
+  fortios_firewall_schedule_recurring:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_schedule_recurring:
+      name: default-darrp-optimize
+      start: 01:00
+      end: 01:30
+      day:
+        - sunday
+        - monday
+        - tuesday
+        - wednesday
+        - thursday
+        - friday
+        - saturday

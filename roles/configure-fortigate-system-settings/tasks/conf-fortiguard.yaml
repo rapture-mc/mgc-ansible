@@ -1,0 +1,29 @@
+---
+- name: Configure central management
+  fortios_system_central_management:
+    access_token: '{{ api_key }}'
+    vdom: '{{ vdom }}'
+    system_central_management:
+      type: fortiguard
+
+- name: Configure FortiGuard
+  fortios_system_fortiguard:
+    access_token: '{{ api_key }}'
+    vdom: '{{ vdom }}'
+    system_fortiguard:
+      fortiguard_anycast: disable
+      protocol: udp
+      port: 8888
+      update_server_location: automatic
+      sdns_server_ip:
+        - 208.91.112.220
+        - 173.243.138.221
+
+- name: Configure FortiGuard logging
+  fortios_log_fortiguard_setting:
+    vdom: '{{ vdom }}'
+    access_token: '{{ api_key }}'
+    log_fortiguard_setting:
+      status: enable
+      upload_option: realtime
+  ignore_errors: true

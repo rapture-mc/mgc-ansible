@@ -1,0 +1,68 @@
+---
+- name: Create lan DHCP server
+  collections:
+    - fortinet.fortios
+  fortios_system_dhcp_server:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom: '{{ vdom }}'
+    system_dhcp_server:
+      conflicted_ip_timeout: 1800
+      default_gateway: '{{ lan_gateway_address }}'
+      dns_service: '{{ "specify" if lan_dns_server is defined else "local" }}'
+      domain: '{{ domain_name }}'
+      dns_server1: '{{ lan_dns_server | default(omit) }}'
+      id: 1
+      interface: '{{ lan_interface_name }}'
+      ip_range:
+        - id: 1
+          start_ip: '{{ lan_dhcp_start_address }}'
+          end_ip: '{{ lan_dhcp_end_address }}'
+      lease_time: 36000
+      netmask: '{{ lan_netmask }}'
+      server_type: regular
+      status: enable
+
+- name: Create guest DHCP server
+  collections:
+    - fortinet.fortios
+  fortios_system_dhcp_server:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom: '{{ vdom }}'
+    system_dhcp_server:
+      conflicted_ip_timeout: 1800
+      default_gateway: '{{ guest_gateway_address }}'
+      dns_service: local
+      id: 2
+      interface: '{{ guest_interface_name }}'
+      ip_range:
+        - id: 1
+          start_ip: '{{ guest_dhcp_start_address }}'
+          end_ip: '{{ guest_dhcp_end_address }}'
+      lease_time: 36000
+      netmask: '{{ guest_netmask }}'
+      server_type: regular
+      status: enable
+
+- name: Create VoIP DHCP server
+  collections:
+    - fortinet.fortios
+  fortios_system_dhcp_server:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom: '{{ vdom }}'
+    system_dhcp_server:
+      conflicted_ip_timeout: 1800
+      default_gateway: '{{ voip_gateway_address }}'
+      dns_service: local
+      id: 3
+      interface: '{{ voip_interface_name }}'
+      ip_range:
+        - id: 1
+          start_ip: '{{ voip_dhcp_start_address }}'
+          end_ip: '{{ voip_dhcp_end_address }}'
+      lease_time: 36000
+      netmask: '{{ voip_netmask }}'
+      server_type: regular
+      status: enable

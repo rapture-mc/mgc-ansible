@@ -1,0 +1,14 @@
+---
+- name: Create private address groups
+  fortios_firewall_addrgrp:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_addrgrp:
+      name: AG-PRIVATE-ADDRESSES
+      member:
+        - name: 0.0.0.0/8
+        - name: 10.0.0.0/8
+        - name: 172.16.0.0/12
+        - name: 192.168.0.0/16
+      color: 6

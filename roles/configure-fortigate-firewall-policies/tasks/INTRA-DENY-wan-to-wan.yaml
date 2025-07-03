@@ -1,0 +1,31 @@
+---
+- name: Create INTRA-DENY-wan-to-wan policy
+  fortios_firewall_policy:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_policy:
+      policyid: 6
+      name: INTRA-DENY-wan-to-wan
+      status: enable
+      srcintf:
+        - name: z-wan
+      dstintf:
+        - name: z-wan
+      action: deny
+      srcaddr:
+        - name: all
+      dstaddr:
+        - name: all
+      internet_service: disable
+      internet_service_src: disable
+      schedule: always
+      service: 
+        - name: ALL
+      logtraffic: all
+      np_acceleration: enable
+      match_vip: enable
+      srcaddr_negate: disable
+      dstaddr_negate: disable
+      service_negate: disable
+      captive_portal_exempt: disable

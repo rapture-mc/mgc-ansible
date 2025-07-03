@@ -1,0 +1,17 @@
+---
+- name: Configure system settings
+  fortios_system_settings:
+    vdom:  '{{ vdom }}'
+    access_token: '{{ api_key }}'
+    system_settings:
+      gui_dns_database: enable
+      gui_dos_policy: enable
+      gui_voip_profile: enable
+      gui_local_in_policy: enable
+      gui_dynamic_routing: enable
+      gui_policy_based_ipsec: enable
+      gui_spamfilter: enable
+      gui_wireless_controller: disable
+      # gui_waf_profile: 'enable' Was working before 7.2.6-1575
+      gui_advanced_policy: enable
+      gui_multiple_interface_policy: enable

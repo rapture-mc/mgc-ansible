@@ -1,0 +1,36 @@
+---
+- name: Create IB-DENY-IS-to-untrust policy
+  fortios_firewall_policy:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_policy:
+      policyid: 110
+      name: IB-DENY-IS-to-untrust
+      status: enable
+      srcintf:
+        - name: z-wan
+      dstintf:
+        - name: z-untrust
+      action: deny
+      dstaddr:
+        - name: all
+      internet_service: disable
+      internet_service_src: enable
+      internet_service_src_name:
+        - name: Botnet-C&C.Server
+        - name: Phishing-Phishing.Server
+        - name: Proxy-Proxy.Server
+        - name: Spam-Spamming.Server
+        - name: Tor-Exit.Node
+      schedule: always
+      service: 
+        - name: ALL
+      logtraffic: all
+      logtraffic_start: disable
+      np_acceleration: enable
+      match_vip: enable
+      dstaddr_negate: disable
+      service_negate: disable
+      timeout_send_rst: disable
+      captive_portal_exempt: disable

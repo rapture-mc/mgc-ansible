@@ -1,0 +1,8 @@
+---
+- name: Configure autoupdate schedule
+  fortios_system_autoupdate_schedule:
+    access_token: '{{ api_key }}'
+    vdom: '{{ vdom }}'
+    system_autoupdate_schedule:
+      frequency: daily
+      time: 03:60

@@ -1,0 +1,40 @@
+---
+- name: Create OB-ALLOW-WindowsNTP-to-wan policy
+  fortios_firewall_policy:
+    access_token: '{{ api_key }}'
+    state: present
+    vdom:  '{{ vdom }}'
+    firewall_policy:
+      policyid: 75
+      name: OB-ALLOW-WindowsNTP-to-wan
+      status: enable
+      srcintf:
+        - name: z-trust
+      dstintf:
+        - name: z-wan
+      action: accept
+      ztna_status: disable
+      srcaddr:
+        - name: all
+      dstaddr:
+        - name: time.windows.com
+      internet_service: disable
+      internet_service_src: disable
+      schedule: always
+      service: 
+        - name: NTP
+      utm_status: enable
+      inspection_mode: flow
+      profile_type: single
+      profile_protocol_options: default
+      ssl_ssh_profile: certificate-inspection
+      av_profile: default
+      logtraffic: all
+      auto_asic_offload: enable
+      np_acceleration: enable
+      nat: enable
+      srcaddr_negate: disable
+      dstaddr_negate: disable
+      service_negate: disable
+      timeout_send_rst: disable
+      captive_portal_exempt: disable

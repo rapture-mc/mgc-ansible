@@ -1,0 +1,16 @@
+# Generic Settings
+vdom: root
+ 
+# LAN Configuration
+lan_interface_name: lan
+lan_gateway_address: 192.168.1.99
+lan_network_address: 192.168.1.0
+lan_netmask: 255.255.255.0
+lan_vlan: 1
+
+# Guest Configuration
+guest_interface_name: guest
+guest_gateway_address: 192.168.50.1
+guest_network_address: 192.168.50.0
+guest_netmask: 255.255.255.0
+guest_vlan: 50
