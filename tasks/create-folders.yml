@@ -14,12 +14,12 @@
 
 - name: Create contracts project
   win_file:
-    path: "C:\Contracts\Civil\CIV 82"
+    path: C:\Contracts\Civil\CIV 82
     state: directory
 
 - name: Create contracts project sub-folders
   win_file:
-    path: "C:\Contracts\Civil\CIV 82\{{ item }}"
+    path: C:\Contracts\Civil\CIV 82\{{ item }}
     state: directory
   loop:
     - Admin
