@@ -8,11 +8,11 @@
     project_name: CIV82
     project_folder_path: "Civil!CIV 82"
   tasks:
-    - name: Create top level project folder security group
+    - name: Create commercial project folder security group
       microsoft.ad.group:
-        identity: FG - {{ project_folder_path }}-M
-        scope: domainlocal
+        identity: FG - {{ project_folder_path }}!Admin!Commercial-M
         path: OU=Folder Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
+        scope: domainlocal
 
     - name: Create admin project folder security group
       microsoft.ad.group:
@@ -21,13 +21,13 @@
         scope: domainlocal
         members:
           add:
-            - FG - {{ project_folder_path }}-M
+            - FG - {{ project_folder_path }}!Admin!Commercial-M
 
-    - name: Create commercial project folder security group
+    - name: Create top level project folder security group
       microsoft.ad.group:
-        identity: FG - {{ project_folder_path }}!Admin!Commercial-M
-        path: OU=Folder Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
+        identity: FG - {{ project_folder_path }}-M
         scope: domainlocal
+        path: OU=Folder Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
         members:
           add:
             - FG - {{ project_folder_path }}!Admin-M
