@@ -1,0 +1,46 @@
+- name: Create System admins
+  microsoft.ad.user:
+    name: '{{ item.username }}'
+    identity: '{{ item.username }}'
+    firstname: '{{ item.firstname }}'
+    surname: '{{ item.lastname }}'
+    display_name: '{{ item.display_name }}'
+    upn: '{{ item.username }}@{{ windows_domain_name }}'
+    password: Welcome123
+    update_password: on_create
+    path: OU=System Admins,OU=Users,OU={{ company_shortcode }},{{ base_dn }}
+    groups:
+      set:
+        - Domain Users
+        - RG - System Admins
+  loop: '{{ sys_admins }}'
+
+- name: Create dummy FInance Snipe-IT users
+  microsoft.ad.user:
+    name: '{{ item.username }}'
+    state: absent
+    identity: '{{ item.username }}'
+    firstname: '{{ item.firstname }}'
+    surname: '{{ item.lastname }}'
+    display_name: '{{ item.display_name }}'
+    upn: '{{ item.username }}@{{ windows_domain_name }}'
+    password: Welcome123
+    update_password: on_create
+    path: OU=Finance,OU=Users,OU={{ company_shortcode }},{{ base_dn }}
+    groups:
+      set:
+        - Domain Users
+        - SYNC - Snipe-IT
+  loop:
+    - username: jill.taylor
+      firstname: Jill
+      lastname: Taylor
+      display_name: Jilly Taylor
+    - username: robin.obama
+      firstname: Robin
+      lastname: Obama
+      display_name: Robin Obama
+    - username: tex.holdem
+      firstname: Tex
+      lastname: Holdem
+      display_name: Tex Holdem

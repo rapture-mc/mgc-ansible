@@ -1,0 +1,19 @@
+- name: Create roll groups
+  microsoft.ad.group:
+    identity: '{{ item }}'
+    scope: global
+    path: OU=Roll Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
+  loop:
+    - RG - System Admins
+    - RG - Management
+    - RG - Finance
+    - RG - HR
+
+- name: Create LDAP sync groups
+  microsoft.ad.group:
+    identity: '{{ item }}'
+    scope: global
+    path: OU=Sync Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
+  loop:
+    - SYNC - Snipe-IT
+    - SYNC - Bookstack

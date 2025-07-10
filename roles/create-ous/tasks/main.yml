@@ -45,4 +45,5 @@
         - Folder Groups
         - Roll Groups
         - Drive Groups
+        - Sync Groups
   when: ou_state == 'present'

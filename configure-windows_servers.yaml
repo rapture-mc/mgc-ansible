@@ -11,35 +11,54 @@
     - name: Install windows_exporter MSI
       win_package:
         path: https://github.com/prometheus-community/windows_exporter/releases/download/v0.30.2/windows_exporter-0.30.2-amd64.msi
-        state: present
+        state: absent 
         arguments:
           - ADDLOCAL=FirewallException
           - ENABLED_COLLECTORS=cpu,cs,dns,logical_disk,net,os,process,service,time
 
-    - name: Create roll groups
-      microsoft.ad.group:
-        identity: '{{ item }}'
-        scope: global
-        path: OU=Roll Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
-      loop:
-        - RG - System Admins
-        - RG - Management
-        - RG - Finance
-        - RG - HR
+    - name: Ensure C:\Temp exists
+      win_file:
+        path: C:\Temp
+        state: directory
 
-    - name: Create System admins
-      microsoft.ad.user:
-        name: '{{ item.username }}'
-        identity: '{{ item.username }}'
-        firstname: '{{ item.firstname }}'
-        surname: '{{ item.lastname }}'
-        display_name: '{{ item.display_name }}'
-        upn: '{{ item.username }}@{{ windows_domain_name }}'
-        password: Welcome123
-        update_password: on_create
-        path: OU=System Admins,OU=Users,OU={{ company_shortcode }},{{ base_dn }}
-        groups:
-          set:
-            - Domain Users
-            - RG - System Admins
-      loop: '{{ sys_admins }}'
+    - name: Copy certificate
+      win_copy:
+        src: files/root.crt
+        dest: C:\Temp\
+
+    - name: Install root certificates
+      win_certificate_store:
+        path: C:\Temp\root.crt
+        store_name: root
+        state: present
+
+    - name: Ensure C:\Data exists
+      win_file:
+        path: C:\Data
+        state: directory
+
+    - name: Ensure C:\Data children folders exist
+      win_file:
+        path: C:\Data\{{ item }}
+        state: directory
+      loop:
+        - Corporate
+        - Marketing
+        - Office Administration
+        - Operations Tools
+        - Plant Management
+        - QLD Financial
+        - Security
+        - SEQ Management
+
+    - name: Create Data share
+      win_share:
+        name: Data
+        path: C:\Data
+        full: Administrators
+
+    # - name: Create groups
+    #   import_tasks: tasks/create-groups.yml
+    #
+    # - name: Create users
+    #   import_tasks: tasks/create-users.yml

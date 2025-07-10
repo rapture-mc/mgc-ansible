@@ -2,15 +2,15 @@ ansible_connection: winrm
 ansible_winrm_server_cert_validation: ignore
 
 # Basic Authentication
-ansible_winrm_transport: basic
-ansible_user: Administrator
+# ansible_winrm_transport: basic
+# ansible_user: Administrator
 
 # Kerberos Authentication
-# ansible_winrm_transport: kerberos
-# ansible_user: Administrator@MEGACORP.INDUSTRIES
+ansible_winrm_transport: kerberos
+ansible_user: Administrator@AD.PROD.MEGACORP.INDUSTRIES
 
 domain_admin_password: '{{ vault_domain_admin_password }}'
 safe_mode_password: '{{ vault_safe_mode_password }}'
-windows_domain_name: prod.megacorp.industries
-base_dn: dc=prod,dc=megacorp,dc=industries
+windows_domain_name: ad.prod.megacorp.industries
+base_dn: dc=ad,dc=prod,dc=megacorp,dc=industries
 company_shortcode: MGC
