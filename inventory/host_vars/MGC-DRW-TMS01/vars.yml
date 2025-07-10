@@ -8,4 +8,4 @@ sys_admins:
     username: ben.harris
     display_name: Ben Harris
 
-project_folder_path: !Civil!CIV 82!
+project_folder_path: "!Civil!CIV 82!"
