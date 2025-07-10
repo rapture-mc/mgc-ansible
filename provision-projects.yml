@@ -1,0 +1,43 @@
+---
+- name: Provision Projects
+  hosts: windows_servers
+  collections:
+    - microsoft.ad
+    - ansible.windows
+  vars:
+    project_name: CIV82
+    project_folder_path: "Civil!CIV 82"
+  tasks:
+    - name: Create top level project folder security group
+      microsoft.ad.group:
+        identity: FG - {{ project_folder_path }}-M
+        scope: domainlocal
+        path: OU=Folder Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
+
+    - name: Create admin project folder security group
+      microsoft.ad.group:
+        identity: FG - {{ project_folder_path }}!Admin-M
+        path: OU=Folder Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
+        scope: domainlocal
+        members:
+          add:
+            - FG - {{ project_folder_path }}-M
+
+    - name: Create commercial project folder security group
+      microsoft.ad.group:
+        identity: FG - {{ project_folder_path }}!Admin!Commercial-M
+        path: OU=Folder Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
+        scope: domainlocal
+        members:
+          add:
+            - FG - {{ project_folder_path }}!Admin-M
+
+    - name: Create project roll groups
+      microsoft.ad.group:
+        identity: '{{ item }}'
+        scope: global
+        path: OU=Roll Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
+      loop:
+        - RG - {{ project_name }}
+        - RG - {{ project_name }} Admin
+        - RG - {{ project_name }} Commercial
