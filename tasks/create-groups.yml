@@ -17,3 +17,21 @@
   loop:
     - SYNC - Snipe-IT
     - SYNC - Bookstack
+
+- name: Create top level project folder security group
+  microsoft.ad.group:
+    identity: FG - !Civil!CIV 82-M
+    scope: domainlocal
+    path: OU=Folder Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
+
+- name: Create admin project folder security group
+  microsoft.ad.group:
+    identity: FG - !Civil!CIV 82!Admin-M
+    scope: domainlocal
+    path: OU=Folder Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
+
+- name: Create commercial project folder security group
+  microsoft.ad.group:
+    identity: FG - !Civil!CIV 82!Admin!Commercial-M
+    scope: domainlocal
+    path: OU=Folder Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
