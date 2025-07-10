@@ -32,30 +32,8 @@
         store_name: root
         state: present
 
-    - name: Ensure C:\Data exists
-      win_file:
-        path: C:\Data
-        state: directory
-
-    - name: Ensure C:\Data children folders exist
-      win_file:
-        path: C:\Data\{{ item }}
-        state: directory
-      loop:
-        - Corporate
-        - Marketing
-        - Office Administration
-        - Operations Tools
-        - Plant Management
-        - QLD Financial
-        - Security
-        - SEQ Management
-
-    - name: Create Data share
-      win_share:
-        name: Data
-        path: C:\Data
-        full: Administrators
+    - name: Create folders
+      import_tasks: tasks/create-folders.yml
 
     # - name: Create groups
     #   import_tasks: tasks/create-groups.yml

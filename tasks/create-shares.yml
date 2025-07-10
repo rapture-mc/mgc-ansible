@@ -1,0 +1,5 @@
+- name: Create Contracts share
+  win_share:
+    name: Contracts
+    path: C:\Contracts
+    full: Administrators

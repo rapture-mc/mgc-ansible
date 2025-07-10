@@ -36,6 +36,7 @@
         - Management
         - Finance
         - HR
+        - Service Accounts
 
     - name: Create Group OUs
       microsoft.ad.ou:

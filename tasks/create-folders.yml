@@ -1,0 +1,27 @@
+- name: Ensure C:\Contracts exists
+  win_file:
+    path: C:\Contracts
+    state: directory
+
+- name: Ensure C:\Contracts children folders exist
+  win_file:
+    path: C:\Contracts\{{ item }}
+    state: directory
+  loop:
+    - Civil
+    - NT
+    - WA
+
+- name: Create contracts project
+  win_file:
+    path: "C:\Contracts\Civil\CIV 82"
+    state: directory
+
+- name: Create contracts project sub-folders
+  win_file:
+    path: "C:\Contracts\Civil\CIV 82\{{ item }}"
+    state: directory
+  loop:
+    - Admin
+    - Photos
+    - Proposals
