@@ -25,3 +25,12 @@
     - Admin
     - Photos
     - Proposals
+
+- name: Create contracts project admin sub-folders
+  win_file:
+    path: C:\Contracts\Civil\CIV 82\Admin\{{ item }}
+    state: directory
+  loop:
+    - Commercial
+    - Emails
+    - Tenders
