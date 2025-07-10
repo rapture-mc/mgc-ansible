@@ -7,7 +7,7 @@ ansible_winrm_server_cert_validation: ignore
 
 # Kerberos Authentication
 ansible_winrm_transport: kerberos
-ansible_user: Administrator@AD.PROD.MEGACORP.INDUSTRIES
+ansible_user: administrator@AD.PROD.MEGACORP.INDUSTRIES
 
 domain_admin_password: '{{ vault_domain_admin_password }}'
 safe_mode_password: '{{ vault_safe_mode_password }}'
