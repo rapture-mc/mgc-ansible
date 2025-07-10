@@ -6,7 +6,7 @@
     surname: '{{ item.lastname }}'
     display_name: '{{ item.display_name }}'
     upn: '{{ item.username }}@{{ windows_domain_name }}'
-    password: Welcome123
+    password: '{{ vault_default_user_password }}'
     update_password: on_create
     path: OU=System Admins,OU=Users,OU={{ company_shortcode }},{{ base_dn }}
     groups:

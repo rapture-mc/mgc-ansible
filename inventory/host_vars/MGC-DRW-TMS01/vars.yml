@@ -7,8 +7,3 @@ sys_admins:
     lastname: Harris
     username: ben.harris
     display_name: Ben Harris
-
-  - firstname: John
-    lastname: Smith
-    username: john.smith
-    display_name: John Smith
