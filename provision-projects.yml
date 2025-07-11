@@ -5,8 +5,8 @@
     - microsoft.ad
     - ansible.windows
   vars:
-    project_name: CIV82
-    project_folder_path: "Civil!CIV 82"
+    project_name: CIV84
+    project_folder_path: "Civil!CIV 84"
   tasks:
     - name: Create project roll groups
       microsoft.ad.group:
