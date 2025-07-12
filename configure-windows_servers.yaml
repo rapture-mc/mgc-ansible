@@ -16,6 +16,16 @@
           - ADDLOCAL=FirewallException
           - ENABLED_COLLECTORS=cpu,cs,dns,logical_disk,net,os,process,service,time
 
+    - name: Install Zabbix agent 2 MSI
+      win_package:
+        path: https://cdn.zabbix.com/zabbix/binaries/stable/7.4/7.4.0/zabbix_agent2-7.4.0-windows-amd64-openssl.msi
+        state: present
+        arguments:
+          - SERVER=192.168.1.46
+          - LISTENPORT=10050
+          - LISTENIP=192.168.1.7
+          - HOSTNAME={{ hostname }}
+
     - name: Ensure C:\Temp exists
       win_file:
         path: C:\Temp
