@@ -36,7 +36,7 @@
 
     - name: Set timezone
       win_timezone:
-        timezone: A.U.S. Central Standard Time
+        timezone: AUS Central Standard Time
 
     - name: Configure w32tm
       win_powershell:
