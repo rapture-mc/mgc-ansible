@@ -22,7 +22,7 @@
 
     - name: Copy certificate
       win_copy:
-        src: files/root.crt
+        src: ../../files/root.crt
         dest: C:\Temp\
 
     - name: Install root certificates
