@@ -10,4 +10,4 @@
     ansible_user: Administrator
     ansible_host: 192.168.1.7
   roles:
-    - install-adds
+    - ../../roles/install-adds
