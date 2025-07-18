@@ -1,12 +1,9 @@
 ---
-- name: Configure Windows Servers
+- name: Install ADDS
   hosts: windows_servers
   collections:
     - microsoft.ad
     - ansible.windows
-  roles:
-    - install-adds
-    - create-ous
   tasks:
     - name: Install Zabbix agent 2 MSI
       win_package:
@@ -48,15 +45,3 @@
           w32tm /config /reliable:yes
 
           net start w32time
-
-    - name: Create folders
-      import_tasks: tasks/create-folders.yml
-
-    - name: Create shares
-      import_tasks: tasks/create-shares.yml
-
-    - name: Create groups
-      import_tasks: tasks/create-groups.yml
-
-    - name: Create users
-      import_tasks: tasks/create-users.yml

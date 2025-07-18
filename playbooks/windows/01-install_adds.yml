@@ -1,0 +1,13 @@
+---
+- name: Install ADDS
+  hosts: windows_servers
+  collections:
+    - microsoft.ad
+    - ansible.windows
+  vars:
+    # For basic authentication. Playbooks after initial playbook use kerberos for authentication
+    ansible_winrm_transport: basic
+    ansible_user: Administrator
+    ansible_host: 192.168.1.7
+  roles:
+    - install-adds

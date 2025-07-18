@@ -1,8 +1,6 @@
 # Use FQDN for kerberos authentication
 ansible_host: mgc-drw-dmc01.prod.megacorp.industries
 
-# Use IP for basic authentication
-# ansible_host: 192.168.1.7
 ansible_password: '{{ vault_ansible_password }}'
 hostname: MGC-DRW-DMC01
 

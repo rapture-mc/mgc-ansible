@@ -1,0 +1,14 @@
+---
+- name: Install ADDS
+  hosts: windows_servers
+  collections:
+    - microsoft.ad
+    - ansible.windows
+  roles:
+    - create-ous
+  tasks:
+    - name: Create groups
+      import_tasks: tasks/create-groups.yml
+
+    - name: Create users
+      import_tasks: tasks/create-users.yml
