@@ -10,6 +10,7 @@
 - name: Create new domain in a new forest on the target host and reboot
   microsoft.ad.domain:
     dns_domain_name: '{{ windows_domain_name }}'
+    domain_netbios_name: '{{ windows_netbios_name }}'
     safe_mode_password: '{{ safe_mode_password }}'
     reboot: true
 

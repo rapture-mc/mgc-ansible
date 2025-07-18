@@ -1,0 +1,21 @@
+# Use FQDN for kerberos authentication
+ansible_host: mgc-drw-dmc01.AD.PROD.MEGACORP.INDUSTRIES
+
+# Use IP for basic authentication
+# ansible_host: 192.168.1.7
+ansible_password: '{{ vault_ansible_password }}'
+hostname: MGC-DRW-DMC01
+
+# Domain Settings
+domain_admin_password: '{{ vault_domain_admin_password }}'
+safe_mode_password: '{{ vault_safe_mode_password }}'
+windows_domain_name: prod.megacorp.industries
+windows_netbios_name: PROD
+base_dn: dc=prod,dc=megacorp,dc=industries
+company_shortcode: MGC
+
+sys_admins:
+  - firstname: Ben
+    lastname: Harris
+    username: ben.harris
+    display_name: Ben Harris

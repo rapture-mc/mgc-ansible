@@ -4,4 +4,4 @@ fortigates:
 
 windows_servers:
   hosts:
-    MGC-DRW-TMS01:
+    MGC-DRW-DMC01:

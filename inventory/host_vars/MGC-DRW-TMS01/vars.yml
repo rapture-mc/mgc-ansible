@@ -1,9 +1,0 @@
-ansible_host: mgc-drw-tms01.AD.PROD.MEGACORP.INDUSTRIES
-ansible_password: '{{ vault_ansible_password }}'
-hostname: MGC-DRW-TMS01
-
-sys_admins:
-  - firstname: Ben
-    lastname: Harris
-    username: ben.harris
-    display_name: Ben Harris

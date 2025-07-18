@@ -8,14 +8,6 @@
     - install-adds
     - create-ous
   tasks:
-    - name: Install windows_exporter MSI
-      win_package:
-        path: https://github.com/prometheus-community/windows_exporter/releases/download/v0.30.2/windows_exporter-0.30.2-amd64.msi
-        state: absent 
-        arguments:
-          - ADDLOCAL=FirewallException
-          - ENABLED_COLLECTORS=cpu,cs,dns,logical_disk,net,os,process,service,time
-
     - name: Install Zabbix agent 2 MSI
       win_package:
         path: https://cdn.zabbix.com/zabbix/binaries/stable/7.4/7.4.0/zabbix_agent2-7.4.0-windows-amd64-openssl.msi
@@ -41,6 +33,10 @@
         path: C:\Temp\root.crt
         store_name: root
         state: present
+
+    - name: Set timezone
+      win_timezone:
+        timezone: A.U.S. Central Standard Time
 
     - name: Configure w32tm
       win_powershell:
