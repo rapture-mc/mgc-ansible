@@ -1,5 +1,5 @@
 ---
-- name: Install ADDS
+- name: Configure OS
   hosts: windows_servers
   collections:
     - microsoft.ad

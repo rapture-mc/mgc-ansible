@@ -1,12 +1,12 @@
 ---
-- name: Install ADDS
+- name: Configure File Server
   hosts: windows_servers
   collections:
     - microsoft.ad
     - ansible.windows
   tasks:
     - name: Create folders
-      import_tasks: tasks/create-folders.yml
+      import_tasks: ../../tasks/create-folders.yml
 
     - name: Create shares
-      import_tasks: tasks/create-shares.yml
+      import_tasks: ../../tasks/create-shares.yml

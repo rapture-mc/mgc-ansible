@@ -1,11 +1,11 @@
 ---
-- name: Install ADDS
+- name: Configure ADDS
   hosts: windows_servers
   collections:
     - microsoft.ad
     - ansible.windows
   roles:
-    - ../../roles/create-ous
+    - create-ous
   tasks:
     - name: Create groups
       import_tasks: ../../tasks/create-groups.yml
