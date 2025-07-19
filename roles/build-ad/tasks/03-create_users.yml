@@ -15,7 +15,7 @@
         - RG - System Admins
         - Domain Users
   loop: '{{ users_system_admins }}'
-  when: sys_admins is defined
+  when: users_system_admins is defined
 
 - name: Create Management users
   microsoft.ad.user:

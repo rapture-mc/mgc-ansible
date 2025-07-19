@@ -14,13 +14,8 @@ company_shortcode: MGC
 
 create_linux_ou: true
 
-sys_admins:
+users_system_admins:
   - firstname: Ben
     lastname: Harris
     username: ben.harris
     display_name: Ben Harris
-
-  - firstname: John
-    lastname: Smith
-    username: john.Smith
-    display_name: John Smith
