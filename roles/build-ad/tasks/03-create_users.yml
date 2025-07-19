@@ -1,0 +1,72 @@
+---
+- name: Create System admins
+  microsoft.ad.user:
+    name: '{{ item.username }}'
+    identity: '{{ item.username }}'
+    firstname: '{{ item.firstname }}'
+    surname: '{{ item.lastname }}'
+    display_name: '{{ item.display_name }}'
+    upn: '{{ item.username }}@{{ windows_domain_name }}'
+    password: '{{ vault_default_user_password }}'
+    update_password: on_create
+    path: OU=System Admins,OU=Users,OU={{ company_shortcode }},{{ base_dn }}
+    groups:
+      set:
+        - RG - System Admins
+        - Domain Users
+  loop: '{{ users_system_admins }}'
+  when: sys_admins is defined
+
+- name: Create Management users
+  microsoft.ad.user:
+    name: '{{ item.username }}'
+    identity: '{{ item.username }}'
+    firstname: '{{ item.firstname }}'
+    surname: '{{ item.lastname }}'
+    display_name: '{{ item.display_name }}'
+    upn: '{{ item.username }}@{{ windows_domain_name }}'
+    password: '{{ vault_default_user_password }}'
+    update_password: on_create
+    path: OU=Management,OU=Users,OU={{ company_shortcode }},{{ base_dn }}
+    groups:
+      set:
+        - RG - Management
+        - Domain Users
+  loop: '{{ users_management }}'
+  when: users_management is defined
+
+- name: Create Finance users
+  microsoft.ad.user:
+    name: '{{ item.username }}'
+    identity: '{{ item.username }}'
+    firstname: '{{ item.firstname }}'
+    surname: '{{ item.lastname }}'
+    display_name: '{{ item.display_name }}'
+    upn: '{{ item.username }}@{{ windows_domain_name }}'
+    password: '{{ vault_default_user_password }}'
+    update_password: on_create
+    path: OU=Finaance,OU=Users,OU={{ company_shortcode }},{{ base_dn }}
+    groups:
+      set:
+        - RG - Finance
+        - Domain Users
+  loop: '{{ finance_users }}'
+  when: finance_users is defined
+
+- name: Create HR users
+  microsoft.ad.user:
+    name: '{{ item.username }}'
+    identity: '{{ item.username }}'
+    firstname: '{{ item.firstname }}'
+    surname: '{{ item.lastname }}'
+    display_name: '{{ item.display_name }}'
+    upn: '{{ item.username }}@{{ windows_domain_name }}'
+    password: '{{ vault_default_user_password }}'
+    update_password: on_create
+    path: OU=HR,OU=Users,OU={{ company_shortcode }},{{ base_dn }}
+    groups:
+      set:
+        - RG - Finance
+        - Domain Users
+  loop: '{{ hr_users }}'
+  when: hr_users is defined

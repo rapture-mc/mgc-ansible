@@ -48,7 +48,7 @@
         - Drive Groups
         - Sync Groups
 
-    - name: Configure Linux OU
+    - name: Create Linux OU
       microsoft.ad.ou:
         name: Linux Groups 
         path: OU=Groups,OU={{ company_shortcode }},{{ base_dn }}

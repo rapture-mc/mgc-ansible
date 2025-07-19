@@ -5,10 +5,4 @@
     - microsoft.ad
     - ansible.windows
   roles:
-    - create-ous
-  tasks:
-    - name: Create groups
-      import_tasks: ../../tasks/create-groups.yml
-
-    - name: Create users
-      import_tasks: ../../tasks/create-users.yml
+    - build-ad

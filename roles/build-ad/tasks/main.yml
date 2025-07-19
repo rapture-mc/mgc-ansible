@@ -1,0 +1,10 @@
+- name: Create OUs
+  import_tasks: 01-create_ous.yml
+
+- name: Create groups
+  import_tasks: 02-create_groups.yml
+  when: ou_state == 'present'
+
+- name: Create users
+  import_tasks: 03-create_users.yml
+  when: ou_state == 'present'
