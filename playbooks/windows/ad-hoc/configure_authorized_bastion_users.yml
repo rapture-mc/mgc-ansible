@@ -13,5 +13,4 @@
         members:
           add:
             - '{{ item.username }}'
-            - kristin.cabot
       loop: '{{ users_system_admins }}'
