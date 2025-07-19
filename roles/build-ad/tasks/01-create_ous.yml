@@ -33,6 +33,7 @@
         state: present
       loop:
         - System Admins
+        - Helpdesk Admins
         - Management
         - Finance
         - HR

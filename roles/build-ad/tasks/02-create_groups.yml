@@ -6,6 +6,7 @@
     path: OU=Roll Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
   loop:
     - RG - System Admins
+    - RG - Helpdesk Admins
     - RG - Management
     - RG - Finance
     - RG - HR
