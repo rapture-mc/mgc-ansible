@@ -1,0 +1,16 @@
+---
+- name: Configure authorized bastion users
+  hosts: windows_servers
+  collections:
+    - microsoft.ad
+    - ansible.windows
+  tasks:
+    - name: Create authorized bastion users group with members
+      microsoft.ad.group:
+        identity: rg-authorized_bastion_users
+        scope: global
+        path: OU=Linux Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
+        members:
+          add:
+            - '{{ item.username }}'
+      loop: '{{ users_system_admins }}'
