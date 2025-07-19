@@ -48,20 +48,10 @@
         - Drive Groups
         - Sync Groups
 
-    - name: Configure Linux OUs
-      block:
-        - name: Create Linux child OUs
-          microsoft.ad.ou:
-            name: Linux Groups 
-            path: OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
-
-        - name: Create Linux child OUs
-          microsoft.ad.ou:
-            name: '{{ item }}'
-            path: OU=Linux Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
-          loop:
-            - rg-authorized_bastion_users
-
-      when: create_linux_ous == true
+    - name: Configure Linux OU
+      microsoft.ad.ou:
+        name: Linux Groups 
+        path: OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
+      when: create_linux_ou == true
 
   when: ou_state == 'present'
