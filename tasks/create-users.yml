@@ -12,4 +12,5 @@
     groups:
       set:
         - RG-System_Admins
+        - Domain Users
   loop: '{{ sys_admins }}'

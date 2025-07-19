@@ -12,6 +12,8 @@ windows_netbios_name: PROD
 base_dn: dc=prod,dc=megacorp,dc=industries
 company_shortcode: MGC
 
+create_linux_ous: true
+
 sys_admins:
   - firstname: Ben
     lastname: Harris
