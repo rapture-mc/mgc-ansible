@@ -13,4 +13,6 @@
         members:
           add:
             - '{{ item.username }}'
-      loop: '{{ users_system_admins }}'
+      loop:
+        - '{{ users_system_admins }}'
+        - '{{ users_hr }}'
