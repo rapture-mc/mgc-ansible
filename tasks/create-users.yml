@@ -11,6 +11,5 @@
     path: OU=System Admins,OU=Users,OU={{ company_shortcode }},{{ base_dn }}
     groups:
       set:
-        - Domain Users
-        - RG - System Admins
+        - RG-System_Admins
   loop: '{{ sys_admins }}'
