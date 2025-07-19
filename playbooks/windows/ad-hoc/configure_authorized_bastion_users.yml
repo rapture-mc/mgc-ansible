@@ -11,6 +11,6 @@
         scope: global
         path: OU=Linux Groups,OU=Groups,OU={{ company_shortcode }},{{ base_dn }}
         members:
-          add:
+          set:
             - '{{ item.username }}'
       loop: '{{ users_system_admins }}'
