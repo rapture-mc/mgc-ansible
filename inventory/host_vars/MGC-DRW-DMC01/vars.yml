@@ -19,3 +19,9 @@ users_system_admins:
     lastname: Harris
     username: ben.harris
     display_name: Ben Harris
+
+users_hr:
+  - firstname: Kristin
+    lastname: Cabot 
+    username: kristin.cabot
+    display_name: Kristin Cabot
