@@ -13,5 +13,4 @@
         members:
           set:
             - '{{ item.username }}'
-            - kristin.cabot
       loop: '{{ users_system_admins }}'
