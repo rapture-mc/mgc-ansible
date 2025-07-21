@@ -36,6 +36,6 @@ dns_records:
   - name: mgc-drw-hvs03
     type: A
     value: 192.168.1.15
-  - name: mgc-drw-hvs04
-    type: A
-    value: 192.168.1.18
+  # - name: mgc-drw-hvs04
+  #   type: A
+  #   value: 192.168.1.18
