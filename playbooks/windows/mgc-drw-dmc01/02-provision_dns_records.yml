@@ -8,8 +8,9 @@
   tasks:
     - name: Configure DNS records
       win_dns_record:
+        zone: '{{ dns_zone }}'
         name: '{{ item.name }}'
         type: '{{ item.type }}'
         value: '{{ item.value }}'
-        zone: '{{ dns_zone }}'
+        state: '{{ item.state }}'
       loop: '{{ dns_records }}'
