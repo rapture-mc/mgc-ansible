@@ -1,0 +1,5 @@
+users_system_admins:
+  - username: ben.harris
+    firstname: Ben
+    lastname: Harris
+    display_name: Ben Harris
