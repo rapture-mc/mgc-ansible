@@ -1,0 +1,15 @@
+---
+- name: Configure DNS records
+  hosts: windows_servers
+  collections:
+    - ansible.windows
+  vars:
+    dns_zone: prod.megacorp.industries
+  tasks:
+    - name: Configure DNS records
+      win_dns_record:
+        name: '{{ item.name }}'
+        type: '{{ item.type }}'
+        value: '{{ item.value }}'
+        zone: '{{ dns_zone }}'
+      loop: '{{ dns_records }}'

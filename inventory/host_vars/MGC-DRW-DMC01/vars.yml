@@ -25,3 +25,8 @@ users_hr:
     lastname: Cabot 
     username: kristin.cabot
     display_name: Kristin Cabot
+
+dns_records:
+  - name: mgc-drw-hvs01
+    type: A
+    value: 192.168.1.17
