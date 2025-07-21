@@ -1,17 +1,85 @@
 dns_records:
+  - name: mgc-drw-bks01
+    type: A
+    value: 192.168.1.42
+    state: present
+
+  - name: mgc-drw-bst01
+    type: A
+    value: 192.168.1.45
+    state: present
+
+  - name: mgc-drw-cld01
+    type: A
+    value: 192.168.1.50
+    state: present
+
+  - name: mgc-drw-dgw01
+    type: A
+    value: 192.168.1.33
+    state: present
+
+  - name: mgc-drw-fbr01
+    type: A
+    value: 192.168.1.40
+    state: present
+
   - name: mgc-drw-hvs01
     type: A
     value: 192.168.1.17
     state: present
+
   - name: mgc-drw-hvs02
     type: A
     value: 192.168.1.16
     state: present
+
   - name: mgc-drw-hvs03
     type: A
     value: 192.168.1.15
     state: present
+
   - name: mgc-drw-hvs04
     type: A
     value: 192.168.1.18
+    state: present
+
+  - name: mgc-drw-git01
+    type: A
+    value: 192.168.1.44
+    state: present
+
+  - name: mgc-drw-mon01
+    type: A
+    value: 192.168.1.46
+    state: present
+
+  - name: mgc-drw-nbx01
+    type: A
+    value: 192.168.1.47
+    state: present
+
+  - name: mgc-drw-nxc01
+    type: A
+    value: 192.168.1.48
+    state: present
+
+  - name: mgc-drw-rst01
+    type: A
+    value: 192.168.1.36
+    state: present
+
+  - name: mgc-drw-rvp01
+    type: A
+    value: 192.168.1.32
+    state: present
+
+  - name: mgc-drw-sem01
+    type: A
+    value: 192.168.1.43
+    state: present
+
+  - name: mgc-drw-vlt01
+    type: A
+    value: 192.168.1.41
     state: present
