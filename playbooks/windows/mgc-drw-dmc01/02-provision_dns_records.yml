@@ -1,5 +1,5 @@
 ---
-- name: Configure DNS records
+- name: Provision DNS records
   hosts: windows_servers
   collections:
     - ansible.windows
