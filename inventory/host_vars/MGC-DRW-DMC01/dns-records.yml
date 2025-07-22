@@ -86,7 +86,7 @@ dns_records:
 
   - name: bookstack
     type: CNAME
-    value: mgc-drw-bks01
+    value: mgc-drw-bks01.{{ windows_domain_name }}
     state: present
 
   - name: grafana
