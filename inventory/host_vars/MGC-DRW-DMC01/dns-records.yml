@@ -83,3 +83,38 @@ dns_records:
     type: A
     value: 192.168.1.41
     state: present
+
+  - name: bookstack
+    type: CNAME
+    value: mgc-drw-bks01
+    state: present
+
+  - name: grafana
+    type: CNAME
+    value: mgc-drw-mon01
+    state: present
+
+  - name: netbox
+    type: CNAME
+    value: mgc-drw-nbx01
+    state: present
+
+  - name: semaphore
+    type: CNAME
+    value: mgc-drw-sem01
+    state: present
+
+  - name: snipe-it
+    type: CNAME
+    value: mgc-drw-sem01
+    state: present
+
+  - name: vault
+    type: CNAME
+    value: mgc-drw-vlt01
+    state: present
+
+  - name: zabbix
+    type: CNAME
+    value: mgc-drw-mon01
+    state: present
