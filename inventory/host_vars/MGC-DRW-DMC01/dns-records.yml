@@ -91,30 +91,30 @@ dns_records:
 
   - name: grafana
     type: CNAME
-    value: mgc-drw-mon01
+    value: mgc-drw-mon01.{{ windows_domain_name }}
     state: present
 
   - name: netbox
     type: CNAME
-    value: mgc-drw-nbx01
+    value: mgc-drw-nbx01.{{ windows_domain_name }}
     state: present
 
   - name: semaphore
     type: CNAME
-    value: mgc-drw-sem01
+    value: mgc-drw-sem01.{{ windows_domain_name }}
     state: present
 
   - name: snipe-it
     type: CNAME
-    value: mgc-drw-sem01
+    value: mgc-drw-sem01.{{ windows_domain_name }}
     state: present
 
   - name: vault
     type: CNAME
-    value: mgc-drw-vlt01
+    value: mgc-drw-vlt01.{{ windows_domain_name }}
     state: present
 
   - name: zabbix
     type: CNAME
-    value: mgc-drw-mon01
+    value: mgc-drw-mon01.{{ windows_domain_name }}
     state: present
