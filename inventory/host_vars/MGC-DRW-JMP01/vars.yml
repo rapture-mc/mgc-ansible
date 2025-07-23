@@ -1,0 +1,5 @@
+# Use FQDN for kerberos authentication
+ansible_host: mgc-drw-jmp01.prod.megacorp.industries
+
+ansible_password: '{{ vault_ansible_password }}'
+hostname: MGC-DRW-JMP01

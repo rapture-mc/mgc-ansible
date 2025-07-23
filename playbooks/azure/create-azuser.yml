@@ -1,0 +1,21 @@
+---
+- name: Create AZ User
+  hosts: localhost
+  collections:
+    - azure.azcollection
+  vars:
+    domain_name: megacorp.industries
+    first_name: John
+    last_name: Smith
+  tasks:
+    - name: Ensure {{ first_name }} {{ last_name }} is present
+      azure_rm_aduser:
+        user_principal_name: '{{ first_name }}.{{ last_name }}@{{ domain_name }}'
+        state: present
+        account_enabled: True
+        display_name: '{{ first_name }} {{ last_name }}'
+        password_profile: '{{ az_user_password }}'
+        given_name: '{{ first_name }}'
+        surname: '{{ last_name }}'
+        mail: '{{ first_name }}.{{ last_name }}@{{ domain_name }}'
+        mail_nickname: '{{ first_name }}.{{ last_name }}'

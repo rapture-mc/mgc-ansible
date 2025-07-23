@@ -5,3 +5,12 @@ fortigates:
 windows_servers:
   hosts:
     MGC-DRW-DMC01:
+
+windows_jump_box:
+  hosts:
+    MGC-DRW-JMP01:
+
+all_windows:
+  children:
+    windows_servers:
+    windows_jump_box:
