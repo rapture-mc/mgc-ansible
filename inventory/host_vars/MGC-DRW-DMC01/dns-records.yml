@@ -84,6 +84,11 @@ dns_records:
     value: 192.168.1.41
     state: present
 
+  - name: nginx
+    type: A
+    value: 192.168.1.64
+    state: present
+
   - name: bookstack
     type: CNAME
     value: mgc-drw-bks01.{{ windows_domain_name }}
